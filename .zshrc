@@ -1,0 +1,82 @@
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+bindkey -e
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename '~/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+
+#setopt localoptions ksharrays
+
+bindkey	"\e[3~"	delete-char
+bindkey	"\e[1~"	beginning-of-line
+bindkey	"\e[4~"	end-of-line
+bindkey	"\e[5~"	history-search-backward
+bindkey	"\e[6~"	history-search-forward
+
+
+alias ls='ls --color=auto'
+export VISUAL="vim"
+
+if [ $TERM="screen" ] && [ -e /usr/share/terminfo/s/screen-256color ]; then
+	export TERM="screen-256color"
+fi
+if [ $TERM="xterm" ] && [ -e /usr/share/terminfo/x/xterm-256color ]; then
+	export TERM="xterm-256color"
+fi
+
+# clipboard
+alias pbcopy="xsel --clipboard --input"
+alias pbpaste="xsel --clipboard --output"
+
+
+
+
+#
+# PowerLevel9K
+#
+POWERLEVEL9K_MODE="nerdfont-complete"
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status user host dir)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(background_jobs vcs)
+
+POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR="\uE0C6 "
+#POWERLEVEL9K_LEFT_SEGMENT_END_SEPARATOR="%F{031}\uE0C6 "
+
+POWERLEVEL9K_LINUX_ICON="\uF303"
+
+POWERLEVEL9K_STATUS_OK=false
+#POWERLEVEL9K_DIR_PATH_SEPARATOR="%F{248} $(print_icon 'LEFT_SUBSEGMENT_SEPARATOR')%K{237} %F{254}"
+POWERLEVEL9K_DIR_PATH_SEPARATOR="%F{250}$(echo $'\uE0BB') %F{254}"
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
+POWERLEVEL9K_SHORTEN_DELIMITER="."
+POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
+
+POWERLEVEL9K_USER_DEFAULT_FOREGROUND="252"
+POWERLEVEL9K_USER_DEFAULT_BACKGROUND="240"
+POWERLEVEL9K_HOST_LOCAL_FOREGROUND="252"
+POWERLEVEL9K_HOST_LOCAL_BACKGROUND="238"
+POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="254"
+POWERLEVEL9K_DIR_DEFAULT_BACKGROUND="237"
+POWERLEVEL9K_DIR_HOME_FOREGROUND="254"
+POWERLEVEL9K_DIR_HOME_BACKGROUND="031"
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="254"
+#POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND="237"
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND="031"
+
+POWERLEVEL9K_VCS_CLEAN_BACKGROUND="039"
+POWERLEVEL9K_VCS_CLEAN_FOREGROUND="234"
+POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND="003"
+POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND="234"
+POWERLEVEL9K_VCS_MODIFIED_BACKGROUND="161"
+POWERLEVEL9K_VCS_MODIFIED_FOREGROUND="255"
+
+if [ -e /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme ]; then
+	source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
+elif [ -e ~/powerlevel9k/powerlevel9k.zsh-theme ]; then
+	source ~/powerlevel9k/powerlevel9k.zsh-theme
+fi

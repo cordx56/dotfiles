@@ -1,0 +1,11 @@
+# ignore All
+*
+
+# Allow specific files
+!.gitignore
+!.zshrc
+!.vimrc
+
+!.byobu/
+!.byobu/profile.tmux
+!.byobu/status
