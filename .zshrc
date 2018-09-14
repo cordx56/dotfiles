@@ -81,4 +81,6 @@ if [ -e /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme ]; then
 	source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
 elif [ -e ~/powerlevel9k/powerlevel9k.zsh-theme ]; then
 	source ~/powerlevel9k/powerlevel9k.zsh-theme
+elif [ -e ~/.powerlevel9k/powerlevel9k.zsh-theme ]; then
+	source ~/.powerlevel9k/powerlevel9k.zsh-theme
 fi
