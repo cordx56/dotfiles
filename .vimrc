@@ -25,7 +25,8 @@ set smartindent
 set shiftwidth=6
 
 set spell
-set spelllang=en,ru
+"set spelllang=en,ru
+set spelllang=en
 
 syntax on
 
