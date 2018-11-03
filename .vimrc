@@ -13,6 +13,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-fugitive.git'
 Plugin 'ryanoasis/vim-devicons'
+Plugin 'tokorom/vim-review'
 call vundle#end()
 filetype plugin indent on
 
