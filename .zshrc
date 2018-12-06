@@ -39,6 +39,12 @@ alias pbpaste="xsel --clipboard --output"
 alias gitlog="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
 
 
+# Vim settings
+if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
+	git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/Vundle.vim
+fi
+
+
 #
 # PowerLevel9K
 #
@@ -79,8 +85,10 @@ POWERLEVEL9K_VCS_MODIFIED_FOREGROUND="255"
 
 if [ -e /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme ]; then
 	source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
-elif [ -e ~/powerlevel9k/powerlevel9k.zsh-theme ]; then
-	source ~/powerlevel9k/powerlevel9k.zsh-theme
 elif [ -e ~/.powerlevel9k/powerlevel9k.zsh-theme ]; then
 	source ~/.powerlevel9k/powerlevel9k.zsh-theme
+elif [ which pacman ]; then
+	sudo pacman -S zsh-theme-powerlevel9k
+else
+	git clone https://github.com/bhilburn/powerlevel9k ~/.powerlevel9k
 fi
