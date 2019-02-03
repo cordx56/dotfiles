@@ -30,6 +30,11 @@ if [ $TERM="xterm" ] && [ -e /usr/share/terminfo/x/xterm-256color ]; then
 	export TERM="xterm-256color"
 fi
 
+# Path
+export PATH="$PATH:$HOME/.local/bin"
+## PHP composer
+export PATH="$PATH:$HOME/.config/composer/vendor/bin"
+
 # clipboard
 alias pbcopy="xsel --clipboard --input"
 alias pbpaste="xsel --clipboard --output"
@@ -48,11 +53,12 @@ fi
 #
 # PowerLevel9K
 #
-POWERLEVEL9K_MODE="nerdfont-complete"
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status user host dir)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(background_jobs vcs)
 
-POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR="\uE0C6 "
+if [[ ! -v POWERLEVEL9K_MODE ]]; then
+	POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR="\uE0C6 "
+fi
 #POWERLEVEL9K_LEFT_SEGMENT_END_SEPARATOR="%F{031}\uE0C6 "
 
 POWERLEVEL9K_LINUX_ICON="\uF303"
@@ -82,6 +88,10 @@ POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND="003"
 POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND="234"
 POWERLEVEL9K_VCS_MODIFIED_BACKGROUND="161"
 POWERLEVEL9K_VCS_MODIFIED_FOREGROUND="255"
+
+if [[ ! -v POWERLEVEL9K_MODE ]]; then
+	POWERLEVEL9K_MODE="nerdfont-complete"
+fi
 
 if [ -e /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme ]; then
 	source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
