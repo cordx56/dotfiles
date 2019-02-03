@@ -97,7 +97,7 @@ if [ -e /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme ]; then
 	source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
 elif [ -e ~/.powerlevel9k/powerlevel9k.zsh-theme ]; then
 	source ~/.powerlevel9k/powerlevel9k.zsh-theme
-elif [ which pacman ]; then
+elif [ `which pacman` ]; then
 	sudo pacman -S zsh-theme-powerlevel9k
 else
 	git clone https://github.com/bhilburn/powerlevel9k ~/.powerlevel9k
