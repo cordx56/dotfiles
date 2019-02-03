@@ -5,6 +5,7 @@
 !.gitignore
 !.zshrc
 !.vimrc
+!.arch-setup.sh
 
 !.byobu/
 !.byobu/profile.tmux
