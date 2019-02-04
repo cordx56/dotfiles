@@ -4,7 +4,7 @@ sudo systemctl enable dhcpcd
 sudo systemctl start dhcpcd
 
 # Install yay
-sudo pacman -Syu git go
+sudo pacman -Syu base-devel git go
 git clone https://aur.archlinux.org/yay.git
 cd ./yay
 makepkg -si
@@ -12,7 +12,7 @@ cd ../
 rm -rf ./yay
 
 # Install GUI
-if [[ ! -n $NO_GUI ]]; then
+if [[ ! -v NO_GUI ]]; then
 	sudo pacman -S gnome dconf-editor gnome-tweaks gnome-usage gnome-weather
 	yay -S gnome-terminal-transparency gnome-shell-extension-dash-to-dock
 	# Install fonts
@@ -36,7 +36,7 @@ sudo systemctl start NetworkManager
 
 
 # Install tools
-sudo pacman -S git gcc python3 go haskell stack php composer rust nodejs npm vim
+sudo pacman -S git gcc python3 python-pip go ghc stack php composer rust nodejs npm vim
 
 ## Setup Python
 pip install --user --upgrade pipenv
