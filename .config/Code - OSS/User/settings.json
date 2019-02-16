@@ -4,5 +4,16 @@
     "editor.renderWhitespace": "all",
     "python.venvPath": "~/.virtualenvs",
     "files.insertFinalNewline": true,
-    "files.eol": "\n"
+    "files.eol": "\n",
+
+    "normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [ "u" ], "after": [],
+            "commands": [ { "command": "undo" } ]
+        },
+        {
+            "before": [ "<C-r>" ], "after": [],
+            "commands": [ { "command": "redo" } ]
+        }
+    ]
 }
