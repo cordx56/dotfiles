@@ -10,3 +10,8 @@
 !.byobu/
 !.byobu/profile.tmux
 !.byobu/status
+
+!.config/
+!.config/Code\ -\ OSS/
+!.config/Code\ -\ OSS/User/
+!.config/Code\ -\ OSS/User/settings.json
