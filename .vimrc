@@ -27,7 +27,7 @@ set shiftwidth=6
 
 set spell
 "set spelllang=en,ru
-set spelllang=en
+set spelllang=en,cjk
 
 syntax on
 
