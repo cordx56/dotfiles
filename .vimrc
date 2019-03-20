@@ -14,6 +14,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-fugitive.git'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'tokorom/vim-review'
+Plugin 'digitaltoad/vim-pug'
 call vundle#end()
 filetype plugin indent on
 
