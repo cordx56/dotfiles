@@ -39,5 +39,6 @@ sudo systemctl start NetworkManager
 sudo pacman -S git gcc python3 python-pip go ghc stack php composer rust nodejs npm vim
 
 ## Setup Python
+yay -S pyenv
 pip install --user --upgrade pipenv
 

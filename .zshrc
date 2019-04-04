@@ -32,6 +32,10 @@ fi
 
 # Path
 export PATH="$PATH:$HOME/.local/bin"
+## Python
+### pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PATH:$PYENV_ROOT/bin"
 ## PHP composer
 export PATH="$PATH:$HOME/.config/composer/vendor/bin"
 
@@ -48,6 +52,11 @@ alias gitlog="git log --graph --abbrev-commit --decorate --format=format:'%C(bol
 if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
 	git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/Vundle.vim
 fi
+
+
+# Python settings
+## pipenv
+export PIPENV_VENV_IN_PROJECT=true
 
 
 #
