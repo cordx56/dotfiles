@@ -5,6 +5,7 @@
 !.gitignore
 !.zshrc
 !.vimrc
+!.latexmkrc
 !.arch-setup.sh
 
 !.byobu/
