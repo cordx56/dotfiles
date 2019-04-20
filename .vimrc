@@ -14,6 +14,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-fugitive.git'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'tokorom/vim-review'
+Plugin 'lervag/vimtex'
 Plugin 'digitaltoad/vim-pug'
 Plugin 'ntk148v/vim-horizon'
 call vundle#end()
