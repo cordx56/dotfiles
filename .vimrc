@@ -68,3 +68,17 @@ autocmd QuitPre * if empty(&bt) | lclose | endif
 
 " Key mapping
 map <C-n> :NERDTreeToggle<CR>
+"" Split op. mapping
+nnoremap s <nop>
+nnoremap sp :sp<CR>
+nnoremap sv :vsp<CR>
+nnoremap sh <C-w>h
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sl <C-w>l
+nnoremap sH <C-w>H
+nnoremap sJ <C-w>J
+nnoremap sK <C-w>K
+nnoremap sL <C-w>L
+"" Tab op. mapping
+nnoremap st :tabnew<CR>
