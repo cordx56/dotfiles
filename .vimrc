@@ -83,5 +83,7 @@ nnoremap sH <C-w>H
 nnoremap sJ <C-w>J
 nnoremap sK <C-w>K
 nnoremap sL <C-w>L
+nnoremap s< <C-w><
+nnoremap s> <C-w>>
 "" Tab op. mapping
 nnoremap st :tabnew<CR>
