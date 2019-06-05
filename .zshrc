@@ -32,6 +32,12 @@ fi
 
 # Path
 export PATH="$PATH:$HOME/.local/bin"
+## Golang
+export GOPATH="$HOME/.go"
+export GOENV_ROOT="$HOME/.goenv"
+export PATH="$GOENV_ROOT/bin:$PATH"
+eval "$(goenv init -)"
+export PATH="$GOPATH/bin:$PATH"
 ## Python
 ### pyenv
 export PYENV_ROOT="$HOME/.pyenv"
