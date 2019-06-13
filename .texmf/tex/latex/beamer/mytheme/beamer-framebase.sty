@@ -1,0 +1,47 @@
+% Set base theme
+\usetheme{Berlin}
+
+% Frame settings
+%% Show totalframenumber
+\setbeamertemplate{page number in head/foot}[totalframenumber]
+%% Change itemize subitem dot
+\setbeamertemplate{itemize item}[square]
+\setbeamertemplate{itemize subitem}[circle]
+\setbeamertemplate{itemize subsubitem}[triangle]
+
+
+% Define color
+\definecolor{brown}{HTML}{a52a2a}
+\definecolor{darkred}{HTML}{8b0000}
+\definecolor{firebrick}{HTML}{b22222}
+\definecolor{palepink}{HTML}{ffeeee}
+\definecolor{paleblue}{HTML}{9fc5e8}
+\definecolor{blueacide}{HTML}{006eb0}
+\definecolor{cobaltblue}{HTML}{0068b7}
+
+
+% listings settings for Beamer
+\definecolor{lstcream}{rgb}{1,0.97,0.9}
+\definecolor{lstgreen}{rgb}{0.1,0.62,0.1}
+\definecolor{lstblue}{rgb}{0.18,0.36,0.71}
+\definecolor{lstorange}{rgb}{1.0,0.3,0.0}
+\lstset{%
+    basicstyle={\scriptsize\ttfamily},
+    identifierstyle={\scriptsize\ttfamily},
+    commentstyle={\scriptsize\ttfamily\itshape\color{lstblue}},
+    keywordstyle={\scriptsize\ttfamily\bfseries\color{lstgreen}},
+    ndkeywordstyle={\scriptsize\ttfamily\color{lstorange}},
+    stringstyle={\scriptsize\ttfamily\color{lstorange}},
+    frame={tb},
+    breaklines=true,
+    columns=[l]{fullflexible},
+    numbers=left,
+    xrightmargin=0zw,
+    xleftmargin=3zw,
+    numberstyle={\tiny\ttfamily},
+    stepnumber=1,
+    numbersep=1zw,
+    lineskip=-0.5ex,
+    backgroundcolor={\color{lstcream}},
+    showstringspaces=false
+}

@@ -44,6 +44,8 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PATH:$PYENV_ROOT/bin"
 ## PHP composer
 export PATH="$PATH:$HOME/.config/composer/vendor/bin"
+## TeX
+export TEXMFCNF="$HOME/.texmf:"
 
 # clipboard
 alias pbcopy="xsel --clipboard --input"

@@ -16,6 +16,14 @@
 !.vim/conf.d/
 !.vim/conf.d/*
 
+!.texmf/
+!.texmf/texmf.cnf
+!.texmf/tex/
+!.texmf/tex/latex/
+!.texmf/tex/latex/beamer/
+!.texmf/tex/latex/beamer/mytheme/
+!.texmf/tex/latex/beamer/mytheme/**
+
 !.config/
 !.config/Code\ -\ OSS/
 !.config/Code\ -\ OSS/User/
