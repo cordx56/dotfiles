@@ -36,7 +36,7 @@ sudo systemctl start NetworkManager
 
 
 # Install tools
-sudo pacman -S git gcc python3 python-pip go ghc stack php composer rust nodejs npm vim
+sudo pacman -S git gcc python3 python-pip go dep ghc stack php composer rust nodejs npm vim
 
 ## Setup Python
 yay -S pyenv

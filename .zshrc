@@ -31,7 +31,7 @@ if [ $TERM="xterm" ] && [ -e /usr/share/terminfo/x/xterm-256color ]; then
 fi
 
 # Path
-export PATH="$PATH:$HOME/.local/bin"
+export PATH="$HOME/.local/bin:$PATH"
 ## Golang
 export GOPATH="$HOME/.go"
 export GOENV_ROOT="$HOME/.goenv"
@@ -41,9 +41,12 @@ export PATH="$GOPATH/bin:$PATH"
 ## Python
 ### pyenv
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PATH:$PYENV_ROOT/bin"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+	eval "$(pyenv init -)"
+fi
 ## PHP composer
-export PATH="$PATH:$HOME/.config/composer/vendor/bin"
+export PATH="$HOME/.config/composer/vendor/bin:$PATH"
 ## TeX
 export TEXMFCNF="$HOME/.texmf:"
 
