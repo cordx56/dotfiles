@@ -12,6 +12,10 @@
 !.byobu/profile.tmux
 !.byobu/status
 
+!.vim/
+!.vim/conf.d/
+!.vim/conf.d/*
+
 !.config/
 !.config/Code\ -\ OSS/
 !.config/Code\ -\ OSS/User/
