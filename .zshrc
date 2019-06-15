@@ -36,7 +36,9 @@ export PATH="$HOME/.local/bin:$PATH"
 export GOPATH="$HOME/.go"
 export GOENV_ROOT="$HOME/.goenv"
 export PATH="$GOENV_ROOT/bin:$PATH"
-eval "$(goenv init -)"
+if which goenv 1>/dev/null 2>&1; then
+	eval "$(goenv init -)"
+fi
 export PATH="$GOPATH/bin:$PATH"
 ## Python
 ### pyenv
