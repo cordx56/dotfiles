@@ -21,8 +21,8 @@ nnoremap s- <C-w>-
 "" Tab op. mapping
 nnoremap <silent> st :tabnew<CR>
 "" Buffer op. mapping
-nnoremap <silent> sb :bnext<CR>
-nnoremap <silent> sB :bprevious<CR>
+nnoremap <silent> gb :bnext<CR>
+nnoremap <silent> gB :bprevious<CR>
 
 " Plugin
 "" ALE
