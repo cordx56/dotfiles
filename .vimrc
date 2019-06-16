@@ -19,8 +19,8 @@ Plugin 'digitaltoad/vim-pug'
 Plugin 'ntk148v/vim-horizon'
 Plugin 'flrnprz/plastic.vim'
 Plugin 'nightsense/snow'
-Plugin 'townk/vim-autoclose'
 Plugin 'tpope/vim-surround'
+Plugin 'cohama/lexima.vim'
 call vundle#end()
 filetype plugin indent on
 
