@@ -23,6 +23,8 @@ nnoremap <silent> st :tabnew<CR>
 "" Buffer op. mapping
 nnoremap <silent> gb :bnext<CR>
 nnoremap <silent> gB :bprevious<CR>
+" Completion
+inoremap <expr> <Tab> pumvisible() ? '<C-n>' : '<Tab>'
 
 " Plugin
 "" ALE

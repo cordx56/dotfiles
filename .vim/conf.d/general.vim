@@ -28,6 +28,9 @@ highlight SpellBad cterm=underline
 set undofile
 set undodir=~/.vim/.undo
 
+" Completion
+set pumheight=15
+
 " Syntax highlighting
 syntax on
 

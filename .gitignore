@@ -25,6 +25,7 @@
 !.texmf/tex/latex/beamer/mytheme/**
 
 !.config/
+!.config/flake8
 !.config/Code\ -\ OSS/
 !.config/Code\ -\ OSS/User/
 !.config/Code\ -\ OSS/User/settings.json
