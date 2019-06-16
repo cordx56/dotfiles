@@ -25,6 +25,7 @@ nnoremap <silent> gb :bnext<CR>
 nnoremap <silent> gB :bprevious<CR>
 " Completion
 inoremap <expr> <Tab> pumvisible() ? '<C-n>' : '<Tab>'
+inoremap <expr> <S-Tab> pumvisible() ? '<C-p>' : '<S-Tab>'
 
 " Plugin
 "" ALE
