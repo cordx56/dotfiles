@@ -8,6 +8,7 @@ autocmd QuitPre * if empty(&bt) | lclose | endif
 
 "" Python Linter settings
 let g:ale_linters = {
+"\   'go': ['gopls', 'gofmt', 'golint', 'govet'],
 \   'python': ['pyls', 'flake8'],
 \ }
 let g:ale_python_pyls_config = {
