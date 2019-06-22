@@ -22,9 +22,7 @@
 !.texmf/texmf.cnf
 !.texmf/tex/
 !.texmf/tex/latex/
-!.texmf/tex/latex/beamer/
-!.texmf/tex/latex/beamer/mytheme/
-!.texmf/tex/latex/beamer/mytheme/**
+!.texmf/tex/latex/**
 
 !.config/
 !.config/flake8

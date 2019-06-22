@@ -1,0 +1,33 @@
+% Common preamble
+\usepackage{xcolor,url}
+\usepackage{amsmath,amssymb}
+\usepackage[dvipdfmx,hidelinks]{hyperref}
+\usepackage{pxjahyper}
+\usepackage{listings,plistings}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage[dvipdfmx,top=20truemm,bottom=20truemm,left=18truemm,right=18truemm]{geometry}
+
+\definecolor{lstcream}{rgb}{1,0.97,0.9}
+\definecolor{lstgreen}{rgb}{0.1,0.62,0.1}
+\definecolor{lstblue}{rgb}{0.18,0.36,0.71}
+\definecolor{lstorange}{rgb}{1.0,0.3,0.0}
+\lstset{%
+    basicstyle={\small\ttfamily},
+    identifierstyle={\small\ttfamily},
+    commentstyle={\small\ttfamily\itshape\color{lstblue}},
+    keywordstyle={\small\ttfamily\bfseries\color{lstgreen}},
+    ndkeywordstyle={\small\ttfamily\color{lstorange}},
+    stringstyle={\small\ttfamily\color{lstorange}},
+    frame={tb},
+    breaklines=true,
+    columns=[l]{fullflexible},
+    numbers=left,
+    xrightmargin=0zw,
+    xleftmargin=3zw,
+    numberstyle={\scriptsize\ttfamily},
+    stepnumber=1,
+    numbersep=1zw,
+    lineskip=-0.5ex,
+    backgroundcolor={\color{lstcream}},
+    showstringspaces=false
+}
