@@ -21,6 +21,7 @@ Plugin 'flrnprz/plastic.vim'
 Plugin 'nightsense/snow'
 Plugin 'tpope/vim-surround'
 Plugin 'cohama/lexima.vim'
+Plugin 'posva/vim-vue'
 call vundle#end()
 filetype plugin indent on
 
