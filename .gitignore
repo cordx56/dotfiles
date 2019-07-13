@@ -7,6 +7,7 @@
 !.vimrc
 !.latexmkrc
 !.arch-setup.sh
+!.npmrc
 
 !.byobu/
 !.byobu/profile.tmux
