@@ -36,21 +36,31 @@ export PATH="$HOME/.local/bin:$PATH"
 export GOPATH="$HOME/.go"
 export GOENV_ROOT="$HOME/.goenv"
 export PATH="$GOENV_ROOT/bin:$PATH"
-if which goenv 1>/dev/null 2>&1; then
-	eval "$(goenv init -)"
-fi
 export PATH="$GOPATH/bin:$PATH"
 ## Python
 ### pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-if command -v pyenv 1>/dev/null 2>&1; then
-	eval "$(pyenv init -)"
-fi
 ## PHP composer
 export PATH="$HOME/.config/composer/vendor/bin:$PATH"
 ## TeX
 export TEXMFCNF="$HOME/.texmf:"
+
+# Completion
+## Golang goenv
+if which goenv 1>/dev/null 2>&1; then
+	eval "$(goenv init -)"
+fi
+## Python pyenv
+if command -v pyenv 1>/dev/null 2>&1; then
+	eval "$(pyenv init -)"
+fi
+## Haskell stack
+if which stack 1>/dev/null 2>&1; then
+	autoload -U +X compinit && compinit
+	autoload -U +X bashcompinit && bashcompinit
+	eval "$(stack --bash-completion-script stack)"
+fi
 
 # clipboard
 alias pbcopy="xsel --clipboard --input"
