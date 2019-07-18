@@ -16,4 +16,5 @@ let g:ale_python_pyls_config = {
 \       'configurationSources': ['flake8'],
 \   }
 \ }
+let g:ale_python_pyls_auto_pipenv = 1
 let g:ale_haskell_ghc_options = ' -dynamic'
