@@ -1,5 +1,17 @@
 % Common preamble for Beamer
 
+% Options
+\DeclareOption{sectionTitlePage}{%
+    \AtBeginSection[] {%
+        \begin{frame}[plain]
+            \centering
+            \vfill
+            \usebeamerfont{title}\insertsectionhead\par
+        \end{frame}
+    }
+}
+\ProcessOptions%
+
 \usepackage{bxdpx-beamer}
 \usepackage{pxjahyper}
 \renewcommand{\kanjifamilydefault}{\gtdefault}
