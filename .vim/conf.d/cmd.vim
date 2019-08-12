@@ -19,5 +19,6 @@ function! SetColor(...)
 		set termguicolors
 		set background=dark
 		colorscheme horizon
+		hi SpecialKey guibg=NONE guifg=#e95678
 	endif
 endfunction
