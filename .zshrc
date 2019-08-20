@@ -83,6 +83,10 @@ if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
 fi
 
 
+# Emacs settings
+alias emacs="emacs -nw"
+
+
 # Python settings
 ## pipenv
 export PIPENV_VENV_IN_PROJECT=true
