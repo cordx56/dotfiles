@@ -10,7 +10,7 @@ autocmd QuitPre * if empty(&bt) | lclose | endif
 let g:ale_linters = {
 \   'cpp': ['cquery'],
 "\   'go': ['gopls', 'gofmt', 'golint', 'govet'],
-\   'python': ['pyls', 'flake8'],
+\   'python': ['pyls'],
 \   'haskell': ['stack-ghc'],
 \ }
 let g:ale_python_pyls_config = {
