@@ -34,6 +34,10 @@ set pumheight=15
 " Syntax highlighting
 syntax on
 
+" Search
+set incsearch
+set hlsearch
+
 "set background=dark
 "colorscheme horizon
 "colorscheme snow
