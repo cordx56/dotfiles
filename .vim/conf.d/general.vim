@@ -37,6 +37,7 @@ syntax on
 " Search
 set incsearch
 set hlsearch
+set smartcase
 
 "set background=dark
 "colorscheme horizon
