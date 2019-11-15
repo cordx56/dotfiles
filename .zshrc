@@ -46,11 +46,14 @@ export PATH="$GOPATH/bin:$PATH"
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 ## Node
+### npm
 export NPM_PACKAGES="$HOME/.npm-packages"
 export PATH="$NPM_PACKAGES/bin:$PATH"
 unset MANPATH
 export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 export NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
+### yarn
+export PATH="`yarn global bin`:$PATH"
 ## PHP composer
 export PATH="$HOME/.config/composer/vendor/bin:$PATH"
 ## TeX
