@@ -37,25 +37,41 @@ fi
 # Path
 export PATH="$HOME/.local/bin:$PATH"
 ## Golang
-export GOPATH="$HOME/.go"
-export GOENV_ROOT="$HOME/.goenv"
-export PATH="$GOENV_ROOT/bin:$PATH"
-export PATH="$GOPATH/bin:$PATH"
+if which go 1>/dev/null 2>&1; then
+	export GOPATH="$HOME/.go"
+	export GOENV_ROOT="$HOME/.goenv"
+	export PATH="$GOENV_ROOT/bin:$PATH"
+	export PATH="$GOPATH/bin:$PATH"
+fi
 ## Python
 ### pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
+if which pyenv 1>/dev/null 2>&1; then
+	export PYENV_ROOT="$HOME/.pyenv"
+	export PATH="$PYENV_ROOT/bin:$PATH"
+fi
 ## Node
 ### npm
-export NPM_PACKAGES="$HOME/.npm-packages"
-export PATH="$NPM_PACKAGES/bin:$PATH"
-unset MANPATH
-export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
-export NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
+if which npm 1>/dev/null 2>&1; then
+	export NPM_PACKAGES="$HOME/.npm-packages"
+	export PATH="$NPM_PACKAGES/bin:$PATH"
+	unset MANPATH
+	export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
+	export NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
+fi
 ### yarn
-export PATH="`yarn global bin`:$PATH"
+if which yarn 1>/dev/null 2>&1; then
+	export PATH="`yarn global bin`:$PATH"
+fi
+### nvm
+if which nvm 1>/dev/null 2>&1; then
+	export NVM_DIR="$HOME/.nvm"
+	export NVM_SOURCE="/usr/share/nvm"
+	[ -s "$NVM_SOURCE/nvm.sh" ] && . "$NVM_SOURCE/nvm.sh"
+fi
 ## PHP composer
-export PATH="$HOME/.config/composer/vendor/bin:$PATH"
+if which php 1>/dev/null 2>&1; then
+	export PATH="$HOME/.config/composer/vendor/bin:$PATH"
+fi
 ## TeX
 export TEXMFCNF="$HOME/.texmf:"
 
