@@ -97,6 +97,7 @@ alias gitlog="git log --graph --abbrev-commit --decorate --format=format:'%C(bol
 if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
 	git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/Vundle.vim
 fi
+alias nv="nvim"
 
 
 # Emacs settings
