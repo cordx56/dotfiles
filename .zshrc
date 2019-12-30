@@ -27,13 +27,6 @@ bindkey	"\e[6~"	history-search-forward
 alias ls='ls --color=auto'
 export VISUAL="vim"
 
-if [ $TERM="screen" ] && [ -e /usr/share/terminfo/s/screen-256color ]; then
-	export TERM="screen-256color"
-fi
-if [ $TERM="xterm" ] && [ -e /usr/share/terminfo/x/xterm-256color ]; then
-	export TERM="xterm-256color"
-fi
-
 # Path
 export PATH="$HOME/.local/bin:$PATH"
 ## Golang
