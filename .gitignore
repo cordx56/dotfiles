@@ -18,6 +18,12 @@
 !.vim/conf.d/*
 !.vim/template/
 !.vim/template/**
+!.config/nvim/
+!.config/nvim/init.vim
+!.config/nvim/dein.toml
+!.config/nvim/dein_lazy.toml
+!.config/nvim/conf.d/
+!.config/nvim/conf.d/**
 
 !.texmf/
 !.texmf/texmf.cnf

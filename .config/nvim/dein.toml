@@ -1,0 +1,42 @@
+
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+# Airline
+[[plugins]]
+repo = 'vim-airline/vim-airline'
+[[plugins]]
+repo = 'vim-airline/vim-airline-themes'
+
+[[plugins]]
+repo = 'w0rp/ale'
+
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+
+[[plugins]]
+repo = 'tpope/vim-fugitive.git'
+
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+
+[[plugins]]
+repo = 'cohama/lexima.vim'
+
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'
+
+# IndentConsistencyCop
+[[plugins]]
+repo = 'inkarkat/vim-ingo-library'
+[[plugins]]
+repo = 'inkarkat/vim-IndentConsistencyCop'
+
+
+# Styles
+[[plugins]]
+repo = 'ntk148v/vim-horizon'
+[[plugins]]
+repo = 'w0ng/vim-hybrid'
+[[plugins]]
+repo = 'sainnhe/edge'
