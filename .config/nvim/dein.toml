@@ -11,8 +11,12 @@ repo = 'vim-airline/vim-airline-themes'
 [[plugins]]
 repo = 'w0rp/ale'
 
+# Completion
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
+[[plugins]]
+repo = 'tbodt/deoplete-tabnine'
+build = './install.sh'
 
 [[plugins]]
 repo = 'tpope/vim-fugitive.git'
