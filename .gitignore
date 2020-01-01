@@ -9,9 +9,10 @@
 !.arch-setup.sh
 !.npmrc
 
-!.byobu/
-!.byobu/profile.tmux
-!.byobu/status
+!.byobu
+!.config/byobu/
+!.config/byobu/profile.tmux
+!.config/byobu/status
 
 !.vim/
 !.vim/conf.d/
