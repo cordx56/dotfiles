@@ -36,6 +36,9 @@ repo = 'inkarkat/vim-ingo-library'
 [[plugins]]
 repo = 'inkarkat/vim-IndentConsistencyCop'
 
+[[plugins]]
+repo = 'voldikss/vim-floaterm'
+
 
 # Styles
 [[plugins]]
