@@ -39,6 +39,12 @@ repo = 'inkarkat/vim-IndentConsistencyCop'
 [[plugins]]
 repo = 'voldikss/vim-floaterm'
 
+[[plugins]]
+repo = 'mbbill/undotree'
+
+[[plugins]]
+repo = 'Shougo/denite.nvim'
+
 
 # Styles
 [[plugins]]
