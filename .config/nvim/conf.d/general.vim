@@ -43,6 +43,9 @@ set hlsearch
 set ignorecase
 set smartcase
 
+" Options
+set clipboard+=unnamedplus
+
 " Style
 set termguicolors
 set background=dark
