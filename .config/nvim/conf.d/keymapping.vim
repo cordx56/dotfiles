@@ -26,6 +26,8 @@ nnoremap <silent> gB :bprevious<CR>
 " Completion
 inoremap <expr> <Tab> pumvisible() ? '<C-n>' : '<Tab>'
 inoremap <expr> <S-Tab> pumvisible() ? '<C-p>' : '<S-Tab>'
+" Terminal
+tnoremap <C-w> <C-\><C-n><C-w>
 
 " Plugin
 "" ALE
