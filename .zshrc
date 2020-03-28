@@ -159,12 +159,16 @@ if [[ ! -v POWERLEVEL9K_MODE ]]; then
 	POWERLEVEL9K_MODE="nerdfont-complete"
 fi
 
-if [ -e /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme ]; then
+if [ -e /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme ]; then
+	source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+elif [ -e /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme ]; then
 	source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
+elif [ -e ~/.powerlevel10k/powerlevel10k.zsh-theme ]; then
+	source ~/.powerlevel10k/powerlevel10k.zsh-theme
 elif [ -e ~/.powerlevel9k/powerlevel9k.zsh-theme ]; then
 	source ~/.powerlevel9k/powerlevel9k.zsh-theme
 elif [ `which pacman` ]; then
-	sudo pacman -S zsh-theme-powerlevel9k
+	sudo pacman -S zsh-theme-powerlevel10k
 else
-	git clone https://github.com/bhilburn/powerlevel9k ~/.powerlevel9k
+	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.powerlevel10k
 fi
