@@ -36,6 +36,8 @@ fi
 
 # Path
 export PATH="$HOME/.local/bin:$PATH"
+## Rust
+export PATH="$HOME/.cargo/bin:$PATH"
 ## Golang
 if which go 1>/dev/null 2>&1; then
 	export GOPATH="$HOME/.go"
