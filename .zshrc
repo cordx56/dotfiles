@@ -80,6 +80,12 @@ if which php 1>/dev/null 2>&1; then
 fi
 ## TeX
 export TEXMFCNF="$HOME/.texmf:"
+## Android
+export ANDROID_HOME="$HOME/Android/Sdk"
+export PATH="$PATH:$ANDROID_HOME/emulator"
+export PATH="$PATH:$ANDROID_HOME/tools"
+export PATH="$PATH:$ANDROID_HOME/tools/bin"
+export PATH="$PATH:$ANDROID_HOME/platform-tools"
 
 # Completion
 ## Golang goenv
