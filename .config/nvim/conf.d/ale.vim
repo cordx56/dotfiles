@@ -7,8 +7,9 @@ autocmd QuitPre * if empty(&bt) | lclose | endif
 "" Python Linter settings
 let g:ale_linters = {
 \   'cpp': ['ccls'],
+\   'rust': ['rls'],
 "\   'go': ['gopls', 'gofmt', 'golint', 'govet'],
-\   'python': ['pyls', 'mypy'],
+\   'python': ['pyls'],
 \   'haskell': ['stack-ghc'],
 \ }
 let g:ale_python_pyls_config = {
