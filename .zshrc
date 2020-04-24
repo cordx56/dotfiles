@@ -80,6 +80,7 @@ if which php 1>/dev/null 2>&1; then
 fi
 ## TeX
 export TEXMFCNF="$HOME/.texmf:"
+alias pandoc-beamer="pandoc -t beamer --slide-level=3"
 ## Android
 export ANDROID_HOME="$HOME/Android/Sdk"
 export PATH="$PATH:$ANDROID_HOME/emulator"
