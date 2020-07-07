@@ -1,19 +1,56 @@
 {
-    "breadcrumbs.enabled": true,
-    "editor.renderControlCharacters": true,
-    "editor.renderWhitespace": "all",
-    "python.venvPath": "~/.virtualenvs",
-    "files.insertFinalNewline": true,
-    "files.eol": "\n",
+  "breadcrumbs.enabled": true,
+  "editor.renderControlCharacters": true,
+  "editor.renderWhitespace": "all",
+  "editor.wordWrap": "on",
+  "python.venvPath": "~/.virtualenvs",
+  "files.insertFinalNewline": true,
+  "files.eol": "\n",
 
-    "normalModeKeyBindingsNonRecursive": [
-        {
-            "before": [ "u" ], "after": [],
-            "commands": [ { "command": "undo" } ]
-        },
-        {
-            "before": [ "<C-r>" ], "after": [],
-            "commands": [ { "command": "redo" } ]
-        }
-    ]
+  "vim.easymotion": true,
+  "vim.incsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["s"],
+      "after": ["<nop>"]
+    },
+    {
+      "before": ["<leader>", "p"],
+      "commands": [":sp"]
+    },
+    {
+      "before": ["<leader>", "v"],
+      "commands": [":vsp"]
+    },
+    {
+      "before": ["<leader>", "h"],
+      "after": ["<C-w>", "h"]
+    },
+    {
+      "before": ["<leader>", "j"],
+      "after": ["<C-w>", "j"]
+    },
+    {
+      "before": ["<leader>", "k"],
+      "after": ["<C-w>", "k"]
+    },
+    {
+      "before": ["<leader>", "l"],
+      "after": ["<C-w>", "l"]
+    }
+  ],
+  "vim.leader": "<space>",
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-f>": false
+  },
 }
