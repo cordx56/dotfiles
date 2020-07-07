@@ -47,7 +47,7 @@ if which go 1>/dev/null 2>&1; then
 fi
 ## Python
 ### pyenv
-if which pyenv 1>/dev/null 2>&1; then
+if [ -d "$HOME/.pyenv" ]; then
 	export PYENV_ROOT="$HOME/.pyenv"
 	export PATH="$PYENV_ROOT/bin:$PATH"
 fi
