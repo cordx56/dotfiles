@@ -8,7 +8,7 @@ autocmd QuitPre * if empty(&bt) | lclose | endif
 let g:ale_linters = {
 \   'cpp': ['ccls'],
 \   'rust': ['rls'],
-"\   'go': ['gopls', 'gofmt', 'golint', 'govet'],
+\   'go': ['gopls', 'gofmt', 'golint', 'govet'],
 \   'python': ['pyls'],
 \   'haskell': ['stack-ghc'],
 \ }
