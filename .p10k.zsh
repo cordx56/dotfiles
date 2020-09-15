@@ -34,11 +34,13 @@
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
     # =========================[ Line #1 ]=========================
     os_icon                 # os identifier
+    user
+    host
     dir                     # current directory
     vcs                     # git status
     # =========================[ Line #2 ]=========================
     newline                 # \n
-    # prompt_char           # prompt symbol
+    prompt_char           # prompt symbol
   )
 
   # The list of segments shown on the right. Fill it with less important segments.
@@ -82,7 +84,7 @@
     azure                   # azure account name (https://docs.microsoft.com/en-us/cli/azure)
     gcloud                  # google cloud cli account and project (https://cloud.google.com/)
     google_app_cred         # google application credentials (https://cloud.google.com/docs/authentication/production)
-    context                 # user@hostname
+    # context                 # user@hostname
     nordvpn                 # nordvpn connection status, linux only (https://nordvpn.com/)
     ranger                  # ranger shell (https://github.com/ranger/ranger)
     nnn                     # nnn shell (https://github.com/jarun/nnn)
@@ -163,11 +165,11 @@
   # Separator between same-color segments on the right.
   typeset -g POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR='\uE0BD '
   # Separator between different-color segments on the left.
-  typeset -g POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR='\uE0BC '
+  typeset -g POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR='\uE0C6 '
   # Separator between different-color segments on the right.
   typeset -g POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR='\uE0BA '
   # The right end of left prompt.
-  typeset -g POWERLEVEL9K_LEFT_PROMPT_LAST_SEGMENT_END_SYMBOL='\uE0B0'
+  typeset -g POWERLEVEL9K_LEFT_PROMPT_LAST_SEGMENT_END_SYMBOL='\uE0C6'
   # The left end of right prompt.
   typeset -g POWERLEVEL9K_RIGHT_PROMPT_FIRST_SEGMENT_START_SYMBOL='\uE0B2'
   # The left end of left prompt.
@@ -176,6 +178,13 @@
   typeset -g POWERLEVEL9K_RIGHT_PROMPT_LAST_SEGMENT_END_SYMBOL=''
   # Left prompt terminator for lines without any segments.
   typeset -g POWERLEVEL9K_EMPTY_LINE_LEFT_PROMPT_LAST_SEGMENT_END_SYMBOL=
+
+  #################################[ user ]####################################################
+  typeset -g POWERLEVEL9K_USER_DEFAULT_FOREGROUND=252
+  typeset -g POWERLEVEL9K_USER_DEFAULT_BACKGROUND=240
+  #################################[ host ]####################################################
+  typeset -g POWERLEVEL9K_HOST_LOCAL_FOREGROUND=252
+  typeset -g POWERLEVEL9K_HOST_LOCAL_BACKGROUND=238
 
   #################################[ os_icon: os identifier ]##################################
   # OS identifier color.
@@ -335,10 +344,10 @@
 
   #####################################[ vcs: git status ]######################################
   # Version control system colors.
-  # typeset -g POWERLEVEL9K_VCS_CLEAN_BACKGROUND=2
-  # typeset -g POWERLEVEL9K_VCS_MODIFIED_BACKGROUND=3
-  # typeset -g POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND=2
-  # typeset -g POWERLEVEL9K_VCS_CONFLICTED_BACKGROUND=3
+  typeset -g POWERLEVEL9K_VCS_CLEAN_BACKGROUND=039
+  typeset -g POWERLEVEL9K_VCS_MODIFIED_BACKGROUND=161
+  typeset -g POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND=003
+  typeset -g POWERLEVEL9K_VCS_CONFLICTED_BACKGROUND=161
   # typeset -g POWERLEVEL9K_VCS_LOADING_BACKGROUND=8
 
   # Branch icon. Set this parameter to '\uF126 ' for the popular Powerline branch icon.
@@ -445,7 +454,7 @@
   # Don't show Git status in prompt for repositories whose workdir matches this pattern.
   # For example, if set to '~', the Git repository at $HOME/.git will be ignored.
   # Multiple patterns can be combined with '|': '~(|/foo)|/bar/baz/*'.
-  typeset -g POWERLEVEL9K_VCS_DISABLED_WORKDIR_PATTERN='~'
+  #typeset -g POWERLEVEL9K_VCS_DISABLED_WORKDIR_PATTERN='~'
 
   # Disable the default Git status formatting.
   typeset -g POWERLEVEL9K_VCS_DISABLE_GITSTATUS_FORMATTING=true
