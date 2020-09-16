@@ -194,3 +194,22 @@ elif [ `which pacman` ]; then
 else
 	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.powerlevel10k
 fi
+
+if [ -e /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+	source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+elif [ -e ~/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+	source ~/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+elif [ `which pacman` ]; then
+	sudo pacman -S zsh-syntax-highlighting
+else
+	git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh-syntax-highlighting
+fi
+
+function update_zsh_tools() {
+	if [ -d ~/.powerlevel10k ]; then
+		(cd ~/.powerlevel10k && git pull origin master)
+	fi
+	if [ -d ~/.zsh-syntax-highlighting ]; then
+		(cd ~/.zsh-syntax-highlighting && git pull origin master)
+	fi
+}
