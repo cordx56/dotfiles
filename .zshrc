@@ -205,6 +205,10 @@ else
 	git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh-syntax-highlighting
 fi
 
+if [ -d ~/.zsh-completions ]; then
+	fpath=($HOME/.zsh-completions/src $fpath)
+fi
+
 function update_zsh_tools() {
 	if [ -d ~/.powerlevel10k ]; then
 		(cd ~/.powerlevel10k && git pull origin master)
