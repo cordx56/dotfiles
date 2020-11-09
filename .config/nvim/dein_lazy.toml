@@ -5,3 +5,11 @@ on_ft = ['tex']
 [[plugins]]
 repo = 'posva/vim-vue'
 on_ft = ['vue']
+
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
+on_ft = ['typescript', 'typescriptreact']
+
+[[plugins]]
+repo = 'peitalin/vim-jsx-typescript'
+on_ft = ['typescriptreact']
