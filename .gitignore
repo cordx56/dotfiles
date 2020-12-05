@@ -26,6 +26,8 @@
 !.config/nvim/dein_lazy.toml
 !.config/nvim/conf.d/
 !.config/nvim/conf.d/**
+!.config/nvim/template/
+!.config/nvim/template/**
 
 !.texmf/
 !.texmf/texmf.cnf
