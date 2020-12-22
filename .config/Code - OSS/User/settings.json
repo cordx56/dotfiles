@@ -24,27 +24,27 @@
       "after": ["<nop>"]
     },
     {
-      "before": ["<leader>", "p"],
+      "before": ["s", "p"],
       "commands": [":sp"]
     },
     {
-      "before": ["<leader>", "v"],
+      "before": ["s", "v"],
       "commands": [":vsp"]
     },
     {
-      "before": ["<leader>", "h"],
+      "before": ["s", "h"],
       "after": ["<C-w>", "h"]
     },
     {
-      "before": ["<leader>", "j"],
+      "before": ["s", "j"],
       "after": ["<C-w>", "j"]
     },
     {
-      "before": ["<leader>", "k"],
+      "before": ["s", "k"],
       "after": ["<C-w>", "k"]
     },
     {
-      "before": ["<leader>", "l"],
+      "before": ["s", "l"],
       "after": ["<C-w>", "l"]
     }
   ],
