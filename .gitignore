@@ -10,6 +10,15 @@
 !.arch-setup.sh
 !.npmrc
 
+!.config/fish/
+!.config/fish/config.fish
+!.config/fish/fish_plugins
+!.config/fish/conf.d/
+!.config/fish/conf.d/alias.fish
+!.config/fish/conf.d/env.fish
+!.config/fish/conf.d/completion.fish
+!.config/fish/conf.d/tide_config.fish
+
 !.byobu
 !.config/byobu/
 !.config/byobu/profile.tmux
