@@ -54,7 +54,7 @@ set --global tide_prompt_char_vi_insert_icon '❯'
 set --global tide_prompt_char_vi_replace_icon '▶'
 set --global tide_prompt_char_vi_visual_icon 'V'
 set --global tide_prompt_connection_color 6C6C6C
-set --global tide_prompt_connection_icon ''
+set --global tide_prompt_connection_icon '─'
 set --global tide_pwd_anchors 'first' 'last'
 set --global tide_pwd_bg_color 333333
 set --global tide_pwd_color_anchors $_tide_color_light_blue
