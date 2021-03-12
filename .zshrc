@@ -111,6 +111,9 @@ if which stack 1>/dev/null 2>&1; then
 	eval "$(stack --bash-completion-script stack)"
 fi
 
+# gpg
+export GPG_TTY=$(tty)
+
 # clipboard
 alias pbcopy="xsel --clipboard --input"
 alias pbpaste="xsel --clipboard --output"

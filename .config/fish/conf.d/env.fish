@@ -32,3 +32,6 @@ set -gx TEXMFCNF $HOME/.texmf:
 # Python settings
 ## pipenv
 set -gx PIPENV_VENV_IN_PROJECT true
+
+# gpg
+set -gx GPG_TTY (tty)
