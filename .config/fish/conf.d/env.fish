@@ -35,3 +35,8 @@ set -gx PIPENV_VENV_IN_PROJECT true
 
 # gpg
 set -gx GPG_TTY (tty)
+
+# anyenv
+if which anyenv 1>/dev/null 2>&1
+	anyenv init - fish | source
+end

@@ -68,7 +68,9 @@ if which npm 1>/dev/null 2>&1; then
 	export NPM_PACKAGES="$HOME/.npm-packages"
 	export PATH="$NPM_PACKAGES/bin:$PATH"
 	unset MANPATH
-	export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
+	if which manpath 1>/dev/null 2>&1; then
+		export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
+	fi
 	export NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
 fi
 ### yarn
@@ -94,6 +96,11 @@ export PATH="$PATH:$ANDROID_HOME/emulator"
 export PATH="$PATH:$ANDROID_HOME/tools"
 export PATH="$PATH:$ANDROID_HOME/tools/bin"
 export PATH="$PATH:$ANDROID_HOME/platform-tools"
+
+# anyenv
+if which anyenv 1>/dev/null 2>&1; then
+	eval "$(anyenv init -)"
+fi
 
 # Completion
 ## Golang goenv
