@@ -24,7 +24,15 @@ set --global tide_context_bg_color 333333
 set --global tide_context_default_color D7AF87
 set --global tide_context_root_color $_tide_color_gold
 set --global tide_context_ssh_color D7AF87
-set --global tide_git_prompt_bg_color 333333
+set --global tide_git_bg_color 333333
+#set --global tide_git_branch_color $_tide_color_green
+#set --global tide_git_conflicted_color $_tide_color_red
+#set --global tide_git_dirty_color $_tide_color_gold
+#set --global tide_git_operation_color $_tide_color_red
+#set --global tide_git_staged_color $_tide_color_gold
+#set --global tide_git_stash_color $_tide_color_green
+#set --global tide_git_untracked_color $_tide_color_light_blue
+#set --global tide_git_upstream_color $_tide_color_green
 set --global tide_jobs_bg_color 333333
 set --global tide_jobs_color $_tide_color_dark_green
 set --global tide_jobs_icon ''
@@ -34,7 +42,7 @@ set --global tide_left_prompt_frame_enabled true
 set --global tide_left_prompt_item_separator_diff_color '\uE0BC'
 set --global tide_left_prompt_item_separator_same_color '\uE0BD'
 set --global tide_left_prompt_item_separator_same_color_color 949494
-set --global tide_left_prompt_items 'os' 'pwd' 'git_prompt' 'newline' 'prompt_char'
+set --global tide_left_prompt_items 'os' 'pwd' 'git' 'newline' 'prompt_char'
 set --global tide_left_prompt_pad_items true
 set --global tide_left_prompt_prefix ''
 set --global tide_left_prompt_suffix '\uE0C6'
@@ -70,7 +78,7 @@ set --global tide_right_prompt_frame_enabled false
 set --global tide_right_prompt_item_separator_diff_color '\uE0BA'
 set --global tide_right_prompt_item_separator_same_color '\uE0BD'
 set --global tide_right_prompt_item_separator_same_color_color 949494
-set --global tide_right_prompt_items 'status' 'cmd_duration' 'context' 'jobs' 'nvm' 'virtual_env' 'vi_mode'
+set --global tide_right_prompt_items 'status' 'cmd_duration' 'context' 'jobs' 'rust' 'virtual_env' 'vi_mode'
 set --global tide_right_prompt_pad_items true
 set --global tide_right_prompt_prefix ''
 set --global tide_right_prompt_suffix ''
