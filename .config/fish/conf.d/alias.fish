@@ -1,8 +1,17 @@
-alias ls='ls --color=auto'
+switch (uname -s)
+case Darwin
+	alias ls="ls -G"
+case Linux
+	alias ls="ls --color=auto"
+end
 
 # clipboard
-alias pbcopy="xsel --clipboard --input"
-alias pbpaste="xsel --clipboard --output"
+if not which pbcopy 1>/dev/null 2>&1
+	alias pbcopy="xsel --clipboard --input"
+end
+if not which pbpaste 1>/dev/null 2>&1
+	alias pbpaste="xsel --clipboard --output"
+end
 
 # Editor
 alias nv="nvim"

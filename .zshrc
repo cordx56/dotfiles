@@ -31,7 +31,13 @@ bindkey	"\e[5~"	history-search-backward
 bindkey	"\e[6~"	history-search-forward
 
 
-alias ls='ls --color=auto'
+case "$(uname -s)" in
+	Darwin)
+		alias ls="ls -G"
+		;;
+	Linux)
+		alias ls="ls --color=auto"
+esac
 export VISUAL="vim"
 
 if [ $TERM="screen" ] && [ -e /usr/share/terminfo/s/screen-256color ]; then
@@ -122,8 +128,12 @@ fi
 export GPG_TTY=$(tty)
 
 # clipboard
-alias pbcopy="xsel --clipboard --input"
-alias pbpaste="xsel --clipboard --output"
+if ! which pbcopy 1>/dev/null 2>&1; then
+	alias pbcopy="xsel --clipboard --input"
+fi
+if ! which pbpaste 1>/dev/null 2>&1; then
+	alias pbpaste="xsel --clipboard --output"
+fi
 
 
 # Git alias
