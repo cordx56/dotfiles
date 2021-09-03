@@ -22,3 +22,6 @@ function! SetColor(...)
 		hi SpecialKey guibg=NONE guifg=#e95678
 	endif
 endfunction
+
+" coc.nvim
+command! -nargs=0 Format :call CocAction('format')

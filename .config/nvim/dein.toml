@@ -8,15 +8,18 @@ repo = 'vim-airline/vim-airline'
 [[plugins]]
 repo = 'vim-airline/vim-airline-themes'
 
-[[plugins]]
-repo = 'w0rp/ale'
+#[[plugins]]
+#repo = 'w0rp/ale'
 
 # Completion
 [[plugins]]
-repo = 'Shougo/deoplete.nvim'
-[[plugins]]
-repo = 'tbodt/deoplete-tabnine'
-build = './install.sh'
+repo = 'neoclide/coc.nvim'
+rev = 'release'
+#[[plugins]]
+#repo = 'Shougo/deoplete.nvim'
+#[[plugins]]
+#repo = 'tbodt/deoplete-tabnine'
+#build = './install.sh'
 
 [[plugins]]
 repo = 'tpope/vim-fugitive.git'
@@ -36,8 +39,8 @@ repo = 'inkarkat/vim-ingo-library'
 [[plugins]]
 repo = 'inkarkat/vim-IndentConsistencyCop'
 
-[[plugins]]
-repo = 'voldikss/vim-floaterm'
+#[[plugins]]
+#repo = 'voldikss/vim-floaterm'
 
 [[plugins]]
 repo = 'mbbill/undotree'

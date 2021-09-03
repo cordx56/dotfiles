@@ -31,7 +31,6 @@ set undodir=~/.vim/.undo
 
 " Completion
 set pumheight=15
-set termguicolors
 set pumblend=15
 
 " Syntax highlighting
