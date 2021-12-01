@@ -107,6 +107,10 @@ export PATH="$PATH:$ANDROID_HOME/platform-tools"
 if which anyenv 1>/dev/null 2>&1; then
 	eval "$(anyenv init -)"
 fi
+# homebrew
+if [ -e /opt/homebrew/bin/brew ]; then
+	eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
 
 # Completion
 ## Golang goenv
