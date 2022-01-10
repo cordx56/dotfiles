@@ -1,5 +1,10 @@
 set nocompatible
 
+if !isdirectory(expand('~/.vim/bundle/Vundle.vim'))
+	execute '!git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/Vundle.vim'
+endif
+
+
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()

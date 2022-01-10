@@ -107,6 +107,10 @@ export PATH="$PATH:$ANDROID_HOME/platform-tools"
 if which anyenv 1>/dev/null 2>&1; then
 	eval "$(anyenv init -)"
 fi
+# homebrew
+if [ -e /opt/homebrew/bin/brew ]; then
+	eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
 
 # Completion
 ## Golang goenv
@@ -141,9 +145,6 @@ alias gitlog="git log --graph --abbrev-commit --decorate --format=format:'%C(bol
 
 
 # Vim settings
-if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
-	git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/Vundle.vim
-fi
 alias nv="nvim"
 
 
