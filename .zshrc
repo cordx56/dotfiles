@@ -1,3 +1,6 @@
+# gpg
+export GPG_TTY=$(tty)
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -127,9 +130,6 @@ if which stack 1>/dev/null 2>&1; then
 	autoload -U +X bashcompinit && bashcompinit
 	eval "$(stack --bash-completion-script stack)"
 fi
-
-# gpg
-export GPG_TTY=$(tty)
 
 # clipboard
 if ! which pbcopy 1>/dev/null 2>&1; then
