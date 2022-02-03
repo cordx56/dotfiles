@@ -51,3 +51,7 @@ nnoremap <silent><nowait> <space>s :CocList -I symbols<CR>
 nnoremap <silent><nowait> <space>j :CocNext<CR>
 nnoremap <silent><nowait> <space>k :CocPrev<CR>
 nnoremap <silent><nowait> <space>p :CocListResume<CR>
+
+nnoremap <silent><nowait> <space>f :CocList files<CR>
+nnoremap <silent><nowait> <space>b :CocList buffers<CR>
+nnoremap <silent><nowait> <space>g :CocList grep<CR>
