@@ -46,6 +46,7 @@ bindkey	"\e[4~"	end-of-line
 bindkey	"\e[5~"	history-search-backward
 bindkey	"\e[6~"	history-search-forward
 
+setopt auto_cd
 
 case "$(uname -s)" in
 	Darwin)
