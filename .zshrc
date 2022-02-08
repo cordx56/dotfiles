@@ -27,6 +27,19 @@ compinit
 
 #setopt localoptions ksharrays
 
+if [ -d ~/.zplug ]; then
+	source ~/.zplug/init.zsh
+	zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+	zplug "romkatv/powerlevel10k", as:theme, depth:1
+	zplug "zsh-users/zsh-syntax-highlighting", defer:2
+	if ! zplug check; then
+		zplug install
+	fi
+	zplug load
+else
+	curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+fi
+
 bindkey	"\e[3~"	delete-char
 bindkey	"\e[1~"	beginning-of-line
 bindkey	"\e[4~"	end-of-line
@@ -160,22 +173,8 @@ export PIPENV_VENV_IN_PROJECT=true
 #
 # PowerLevel9K
 #
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status user host dir)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(background_jobs vcs)
 
-if [[ ! -v POWERLEVEL9K_MODE ]]; then
-	POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR="\uE0C6 "
-fi
-#POWERLEVEL9K_LEFT_SEGMENT_END_SEPARATOR="%F{031}\uE0C6 "
-
-POWERLEVEL9K_LINUX_ICON="\uF303"
-
-POWERLEVEL9K_STATUS_OK=false
-#POWERLEVEL9K_DIR_PATH_SEPARATOR="%F{248} $(print_icon 'LEFT_SUBSEGMENT_SEPARATOR')%K{237} %F{254}"
 POWERLEVEL9K_DIR_PATH_SEPARATOR="%F{250}$(echo $'\uE0BB') %F{254}"
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
-POWERLEVEL9K_SHORTEN_DELIMITER="."
-POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
 
 POWERLEVEL9K_USER_DEFAULT_FOREGROUND="252"
 POWERLEVEL9K_USER_DEFAULT_BACKGROUND="240"
@@ -196,45 +195,4 @@ POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND="234"
 POWERLEVEL9K_VCS_MODIFIED_BACKGROUND="161"
 POWERLEVEL9K_VCS_MODIFIED_FOREGROUND="255"
 
-if [[ ! -v POWERLEVEL9K_MODE ]]; then
-	POWERLEVEL9K_MODE="nerdfont-complete"
-fi
-
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-if [ -e /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme ]; then
-	source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
-elif [ -e /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme ]; then
-	source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
-elif [ -e ~/.powerlevel10k/powerlevel10k.zsh-theme ]; then
-	source ~/.powerlevel10k/powerlevel10k.zsh-theme
-elif [ -e ~/.powerlevel9k/powerlevel9k.zsh-theme ]; then
-	source ~/.powerlevel9k/powerlevel9k.zsh-theme
-elif [ `which pacman` ]; then
-	sudo pacman -S zsh-theme-powerlevel10k
-else
-	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.powerlevel10k
-fi
-
-if [ -e /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
-	source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-elif [ -e ~/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
-	source ~/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-elif [ `which pacman` ]; then
-	sudo pacman -S zsh-syntax-highlighting
-else
-	git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh-syntax-highlighting
-fi
-
-if [ -d ~/.zsh-completions ]; then
-	fpath=($HOME/.zsh-completions/src $fpath)
-fi
-
-function update_zsh_tools() {
-	if [ -d ~/.powerlevel10k ]; then
-		(cd ~/.powerlevel10k && git pull origin master)
-	fi
-	if [ -d ~/.zsh-syntax-highlighting ]; then
-		(cd ~/.zsh-syntax-highlighting && git pull origin master)
-	fi
-}
