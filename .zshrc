@@ -124,6 +124,10 @@ export PATH="$PATH:$ANDROID_HOME/platform-tools"
 if which anyenv 1>/dev/null 2>&1; then
 	eval "$(anyenv init -)"
 fi
+# asdf
+if [ -d "$HOME/.asdf" ]; then
+	source $HOME/.asdf/asdf.sh
+fi
 # homebrew
 if [ -e /opt/homebrew/bin/brew ]; then
 	eval "$(/opt/homebrew/bin/brew shellenv)"
