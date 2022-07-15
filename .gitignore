@@ -49,3 +49,6 @@
 !.config/Code\ -\ OSS/
 !.config/Code\ -\ OSS/User/
 !.config/Code\ -\ OSS/User/settings.json
+
+!.config/iterm2/
+!.config/iterm2/com.googlecode.iterm2.plist
