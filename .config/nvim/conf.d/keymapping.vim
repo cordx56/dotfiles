@@ -24,8 +24,9 @@ nnoremap <silent> st :tabnew<CR>
 nnoremap <silent> gb :bnext<CR>
 nnoremap <silent> gB :bprevious<CR>
 " Completion
-inoremap <expr> <Tab> pumvisible() ? '<C-n>' : '<Tab>'
-inoremap <expr> <S-Tab> pumvisible() ? '<C-p>' : '<S-Tab>'
+inoremap <expr> <Tab> coc#pum#visible() ? coc#pum#next(1) : '<Tab>'
+inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : '<S-Tab>'
+"inoremap <expr> <CR> coc#pum#visible() ? coc#pum#confirm() : '<CR>'
 " Terminal
 tnoremap <C-w> <C-\><C-n><C-w>
 

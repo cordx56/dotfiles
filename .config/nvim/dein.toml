@@ -28,7 +28,8 @@ repo = 'tpope/vim-fugitive.git'
 repo = 'scrooloose/nerdtree'
 
 [[plugins]]
-repo = 'cohama/lexima.vim'
+repo = 'cordx56/lexima.vim-coc.nvim'
+rev = "coc-nvim"
 
 [[plugins]]
 repo = 'ryanoasis/vim-devicons'
