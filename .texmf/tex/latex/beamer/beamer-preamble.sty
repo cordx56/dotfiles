@@ -1,0 +1,30 @@
+% Common preamble for Beamer
+
+% Options
+\DeclareOption{sectionTitlePage}{%
+    \AtBeginSection[] {%
+        \begin{frame}[plain]
+            \centering
+            \vfill
+            \usebeamerfont{title}\insertsectionhead\par
+        \end{frame}
+    }
+}
+\ProcessOptions%
+
+\usepackage{bxdpx-beamer}
+\usepackage{pxjahyper}
+\renewcommand{\kanjifamilydefault}{\gtdefault}
+
+\usepackage{xcolor,url}
+\usepackage{amsmath,amssymb}
+\usepackage{listings,plistings}
+\usepackage[absolute,overlay]{textpos}
+
+% Font settings
+\usepackage[T1]{fontenc}
+%\usepackage[light]{plex-sans,plex-serif,plex-mono}
+\usepackage{eulerpx}
+
+% Ignore \tightlist
+\def\tightlist{}
