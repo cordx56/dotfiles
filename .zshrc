@@ -87,19 +87,8 @@ if which gem 1>/dev/null 2>&1; then
 fi
 ## Node
 ### npm
-if which npm 1>/dev/null 2>&1; then
-	export NPM_PACKAGES="$HOME/.npm-packages"
-	export PATH="$NPM_PACKAGES/bin:$PATH"
-	unset MANPATH
-	if which manpath 1>/dev/null 2>&1; then
-		export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
-	fi
-	export NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
-fi
-### yarn
-if which yarn 1>/dev/null 2>&1; then
-	export PATH="`yarn global bin`:$PATH"
-fi
+export NPM_PACKAGES="$HOME/.npm-packages"
+export PATH="$NPM_PACKAGES/bin:$PATH"
 ### nvm
 if which nvm 1>/dev/null 2>&1; then
 	export NVM_DIR="$HOME/.nvm"
@@ -123,6 +112,10 @@ export PATH="$PATH:$ANDROID_HOME/platform-tools"
 # anyenv
 if which anyenv 1>/dev/null 2>&1; then
 	eval "$(anyenv init -)"
+fi
+# docker
+if [ -d "$HOME/.docker/bin" ]; then
+	export PATH="$HOME/.docker/bin:$PATH"
 fi
 # homebrew
 if [ -e /opt/homebrew/bin/brew ]; then
