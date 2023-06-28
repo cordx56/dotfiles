@@ -1,0 +1,10 @@
+[init]
+	defaultBranch = main
+[user]
+	email = cordx56@cordx.cx
+	name = CHISEN Kaoru
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDMWey4e7S7JyB3Id/R0GmWsm28hti/91+ve82MgOXVn
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true

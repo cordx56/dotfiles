@@ -3,6 +3,7 @@
 
 # Allow specific files
 !.gitignore
+!.gitconfig
 !.zshrc
 !.p10k.zsh
 !.vimrc
