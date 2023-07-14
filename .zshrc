@@ -74,6 +74,10 @@ if [ -d "$HOME/.pyenv" ]; then
 	export PYENV_ROOT="$HOME/.pyenv"
 	export PATH="$PYENV_ROOT/bin:$PATH"
 fi
+### rye
+if [ -e "$HOME/.rye/env" ]; then
+	source "$HOME/.rye/env"
+fi
 ## Ruby
 if which gem 1>/dev/null 2>&1; then
 	export PATH="`ruby -e 'puts Gem.user_dir'`/bin:$PATH"
@@ -155,6 +159,13 @@ alias emacs="emacs -nw"
 # Python settings
 ## pipenv
 export PIPENV_VENV_IN_PROJECT=true
+
+# iTerm2
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# ==========================#
+# INSERT CHANGES ABOVE HERE #
+# ========================= #
 
 # asdf
 if [ -d "$HOME/.asdf" ]; then
