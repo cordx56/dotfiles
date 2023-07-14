@@ -74,10 +74,6 @@ if [ -d "$HOME/.pyenv" ]; then
 	export PYENV_ROOT="$HOME/.pyenv"
 	export PATH="$PYENV_ROOT/bin:$PATH"
 fi
-### rye
-if [ -e "$HOME/.rye/env" ]; then
-	source "$HOME/.rye/env"
-fi
 ## Ruby
 if which gem 1>/dev/null 2>&1; then
 	export PATH="`ruby -e 'puts Gem.user_dir'`/bin:$PATH"
@@ -170,6 +166,10 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 # asdf
 if [ -d "$HOME/.asdf" ]; then
 	source $HOME/.asdf/asdf.sh
+fi
+# rye
+if [ -e "$HOME/.rye/env" ]; then
+	source "$HOME/.rye/env"
 fi
 
 #
