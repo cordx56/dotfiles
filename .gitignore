@@ -20,6 +20,8 @@
 !.config/fish/conf.d/completion.fish
 !.config/fish/conf.d/tide_config.fish
 
+!.tmux.conf
+
 !.byobu
 !.config/byobu/
 !.config/byobu/profile.tmux
@@ -38,6 +40,9 @@
 !.config/nvim/conf.d/**
 !.config/nvim/template/
 !.config/nvim/template/**
+!.config/nvim/init.lua
+!.config/nvim/lua/
+!.config/nvim/lua/**
 
 !.texmf/
 !.texmf/texmf.cnf
@@ -54,4 +59,5 @@
 !.config/iterm2/
 !.config/iterm2/com.googlecode.iterm2.plist
 
-!.config/alacritty.yml
+!.config/alacritty/
+!.config/alacritty/**
