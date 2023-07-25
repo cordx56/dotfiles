@@ -1,3 +1,6 @@
+-- Preload
+require("preload")
+
 -- Load lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -21,16 +24,20 @@ require("lazy").setup({
     "nvim-tree/nvim-tree.lua",
     "nvim-tree/nvim-web-devicons",
     "neovim/nvim-lspconfig",
+    "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-path",
+    "hrsh7th/nvim-cmp",
 })
 
+-- Plugins
 require("auto-session").setup()
 require("nvim-autopairs").setup()
-require("nvim-tree").setup()
+require("line")
+require("tree")
+require("lsp")
+require("completion")
 
-
--- Load settings
+-- Settings
 require("general")
 require("keymap")
-require("plugin-lualine")
-
-vim.cmd("colorscheme horizon")
