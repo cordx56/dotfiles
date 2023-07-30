@@ -28,6 +28,8 @@ require("lazy").setup({
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
     "hrsh7th/nvim-cmp",
+    { "jose-elias-alvarez/null-ls.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
+    "NMAC427/guess-indent.nvim",
 })
 
 -- Plugins
@@ -37,6 +39,8 @@ require("line")
 require("tree")
 require("lsp")
 require("completion")
+require("lint")
+require("guess-indent").setup {}
 
 -- Settings
 require("general")

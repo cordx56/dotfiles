@@ -15,7 +15,7 @@ on_lsp_attach(function(ev)
     local opts = { buffer = ev.buf }
     nnoremap("gd", vim.lsp.buf.definition, opts)
     nnoremap("<space>h", vim.lsp.buf.hover, opts)
-    nnoremap("F", function()
+    nnoremap("f", function()
         vim.lsp.buf.format { async = true }
     end, opts)
 end)
