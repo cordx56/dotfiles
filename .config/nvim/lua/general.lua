@@ -2,6 +2,7 @@ local opt = vim.opt
 
 -- Visual
 opt.number = true
+opt.signcolumn = "yes"
 opt.cursorline = true
 opt.list = true
 opt.listchars = { tab = "> " }
@@ -34,6 +35,8 @@ opt.smartcase = true
 
 -- undo
 opt.undofile = true
+
+opt.autoread = true
 
 opt.termguicolors = true
 vim.cmd("colorscheme horizon")

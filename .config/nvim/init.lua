@@ -30,6 +30,7 @@ require("lazy").setup({
     "hrsh7th/nvim-cmp",
     { "jose-elias-alvarez/null-ls.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
     "NMAC427/guess-indent.nvim",
+    { "nvim-telescope/telescope.nvim", tag = "0.1.2", dependencies = { "nvim-lua/plenary.nvim" } },
 })
 
 -- Plugins
@@ -41,6 +42,7 @@ require("lsp")
 require("completion")
 require("lint")
 require("guess-indent").setup {}
+require("telescope").setup {}
 
 -- Settings
 require("general")

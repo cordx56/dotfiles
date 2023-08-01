@@ -15,7 +15,13 @@ on_lsp_attach(function(ev)
     local opts = { buffer = ev.buf }
     nnoremap("gd", vim.lsp.buf.definition, opts)
     nnoremap("<space>h", vim.lsp.buf.hover, opts)
-    nnoremap("f", function()
+    nnoremap("F", function()
         vim.lsp.buf.format { async = true }
     end, opts)
 end)
+
+-- Telescope
+local telescope_builtin = require("telescope.builtin")
+nnoremap("ff", telescope_builtin.find_files)
+nnoremap("fg", telescope_builtin.live_grep)
+nnoremap("fb", telescope_builtin.buffers)
