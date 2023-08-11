@@ -39,4 +39,4 @@ opt.undofile = true
 opt.autoread = true
 
 opt.termguicolors = true
-vim.cmd("colorscheme horizon")
+vim.cmd("colorscheme tokyonight-night")

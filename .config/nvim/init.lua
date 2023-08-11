@@ -18,6 +18,7 @@ vim.opt.rtp:prepend(lazypath)
 -- Load plugins
 require("lazy").setup({
     "lunarvim/horizon.nvim",
+    "folke/tokyonight.nvim",
     "nvim-lualine/lualine.nvim",
     "rmagatti/auto-session",
     { "windwp/nvim-autopairs", event = "InsertEnter" },
