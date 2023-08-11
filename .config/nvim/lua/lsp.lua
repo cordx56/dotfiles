@@ -12,6 +12,7 @@ lspconfig.denols.setup {
     single_file_support = false,
     root_dir = lspconfig.util.root_pattern("deno.json"),
 }
+lspconfig.texlab.setup {}
 
 on_lsp_attach(function(ev)
     vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"

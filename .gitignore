@@ -22,6 +22,9 @@
 
 !.tmux.conf
 
+!.config/zellij/
+!.config/zellij/**
+
 !.byobu
 !.config/byobu/
 !.config/byobu/profile.tmux
