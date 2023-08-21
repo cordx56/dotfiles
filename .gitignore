@@ -30,6 +30,11 @@
 !.config/byobu/profile.tmux
 !.config/byobu/status
 
+!.ssh/
+!.ssh/config
+!.ssh/conf.d/
+!.ssh/conf.d/common
+
 !.vim/
 !.vim/conf.d/
 !.vim/conf.d/*
