@@ -143,7 +143,7 @@ fi
 # Git settings
 alias g="git"
 if which git 1>/dev/null 2>&1; then
-	source .gitconfig.sh
+	source $HOME/.gitconfig.sh
 fi
 
 
