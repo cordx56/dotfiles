@@ -3,9 +3,9 @@
 
 # Allow specific files
 !.gitignore
-!.gitconfig
 !.zshrc
 !.p10k.zsh
+!.gitconfig.sh
 !.vimrc
 !.latexmkrc
 !.arch-setup.sh
