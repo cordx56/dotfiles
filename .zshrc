@@ -32,6 +32,7 @@ if [ -d ~/.zplug ]; then
 	zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 	zplug "romkatv/powerlevel10k", as:theme, depth:1
 	zplug "zsh-users/zsh-syntax-highlighting", defer:2
+	zplug "jeffreytse/zsh-vi-mode"
 	if ! zplug check; then
 		zplug install
 	fi
@@ -92,7 +93,9 @@ fi
 if which php 1>/dev/null 2>&1; then
 	export PATH="$HOME/.config/composer/vendor/bin:$PATH"
 fi
-## lean
+# Haskell
+[ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
+## Lean
 if [ -e "$HOME/.elan/env" ]; then
 	source "$HOME/.elan/env"
 fi
