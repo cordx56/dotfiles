@@ -21,6 +21,8 @@
 !.config/fish/conf.d/tide_config.fish
 
 !.tmux.conf
+!.config/tmux/
+!.config/tmux/**
 
 !.config/zellij/
 !.config/zellij/**
