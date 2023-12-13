@@ -19,6 +19,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
     "lunarvim/horizon.nvim",
     "folke/tokyonight.nvim",
+    "EdenEast/nightfox.nvim",
     "nvim-lualine/lualine.nvim",
     "rmagatti/auto-session",
     { "windwp/nvim-autopairs", event = "InsertEnter" },
