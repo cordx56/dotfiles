@@ -1,5 +1,11 @@
 #!/bin/bash
 
+function u() {
+    local ubin = $(dc -e "16i 2o $1 p")
+    echo $ubin
+    #| xxd -r -p
+}
+
 function config_tmux() {
     local t="tmux"
     local bind="$t bind"
@@ -43,7 +49,7 @@ function config_tmux() {
     local right_accent="#[bg=$c_red] $set_default"
     $set -g status-bg $c_default_bg
     $set -g status-fg $c_default_fg
-    $set -g window-status-format "$set_default #I\ue0bb#W "
+    $set -g window-status-format "$set_default #I$(u e0bb)#W "
     $set -g window-status-current-format "#[bg=$c_default_bg,fg=$c_red]\ue0ba#[bg=$c_red,fg=$c_default_fg]#I#[fg=$c_black]\ue0ba$set_default#W "
     local os_icon="?"
     if [ "$(uname -o)" = 'Linux' ]; then
