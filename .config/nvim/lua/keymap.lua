@@ -1,6 +1,8 @@
 -- Keymaps
 --- General
 inoremap("jj", "<esc>")
+nnoremap("H", "^")
+nnoremap("L", "$")
 --- Split
 nnoremap("s", "<c-w>")
 nnoremap("sp", "<c-w>s")
