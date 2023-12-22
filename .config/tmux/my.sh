@@ -1,6 +1,7 @@
 #!/bin/bash
 
 function u() {
+    # https://stackoverflow.com/questions/27652458/whats-the-best-way-to-embed-a-unicode-character-in-a-posix-shell-script
     printf $(printf '\\%o' $(printf %08x "0x$1" | sed 's/../0x& /g')) | iconv -f UTF-32BE -t UTF-8
 }
 
