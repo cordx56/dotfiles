@@ -12,6 +12,13 @@ end
 inoremap = function(before, after, opts)
     keymap("i", before, after, opts)
 end
+vnoremap = function(before, after, opts)
+    keymap("v", before, after, opts)
+end
+nvnoremap = function(before, after, opts)
+    nnoremap(before, after, opts)
+    vnoremap(before, after, opts)
+end
 
 -- Autocmd
 on_lsp_attach = function(callback)

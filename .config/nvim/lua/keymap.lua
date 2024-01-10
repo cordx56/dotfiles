@@ -1,8 +1,13 @@
 -- Keymaps
 --- General
 inoremap("jj", "<esc>")
-nnoremap("H", "^")
-nnoremap("L", "$")
+nvnoremap("j", "gj")
+nvnoremap("k", "gk")
+nvnoremap("H", "^")
+nvnoremap("L", "$")
+--- Page
+nvnoremap("<space>j", "<c-d>")
+nvnoremap("<space>k", "<c-u>")
 --- Split
 nnoremap("s", "<c-w>")
 nnoremap("sp", "<c-w>s")
