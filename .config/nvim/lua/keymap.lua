@@ -3,8 +3,8 @@
 inoremap("jj", "<esc>")
 nvnoremap("j", "gj")
 nvnoremap("k", "gk")
-nvnoremap("H", "^")
-nvnoremap("L", "$")
+map("H", "^")
+map("L", "$")
 --- Page
 nvnoremap("<space>j", "<c-d>")
 nvnoremap("<space>k", "<c-u>")
