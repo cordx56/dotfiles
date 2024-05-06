@@ -177,6 +177,10 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 if [ -d "$HOME/.asdf" ]; then
 	source $HOME/.asdf/asdf.sh
 fi
+# mise
+if [ -f "$HOME/.local/bin/mise" ]; then
+	eval "$($HOME/.local/bin/mise activate zsh)"
+fi
 # rye
 if [ -e "$HOME/.rye/env" ]; then
 	source "$HOME/.rye/env"
