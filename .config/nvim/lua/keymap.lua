@@ -3,15 +3,13 @@
 inoremap("jj", "<esc>")
 nvnoremap("j", "gj")
 nvnoremap("k", "gk")
-map("H", "^")
-map("L", "$")
+noremap("H", "^")
+noremap("L", "$")
 --- Page
 nvnoremap("<space>j", "<c-d>")
 nvnoremap("<space>k", "<c-u>")
 --- Split
 nnoremap("s", "<c-w>")
-nnoremap("sp", "<c-w>s")
-nnoremap("sv", "<c-w>v")
 --- Tab
 nnoremap("st", ":tabnew<cr>")
 

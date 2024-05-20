@@ -7,6 +7,9 @@ local keymap = function(mode, before, after, opts)
     vim.keymap.set(mode, before, after, new_opts)
 end
 map = function(before, after, opts)
+    keymap("", before, after, { noremap = false })
+end
+noremap = function(before, after, opts)
     keymap("", before, after, opts)
 end
 nnoremap = function(before, after, opts)
