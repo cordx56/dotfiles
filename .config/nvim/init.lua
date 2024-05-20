@@ -35,6 +35,7 @@ require("lazy").setup({
     { "nvim-telescope/telescope.nvim", tag = "0.1.2", dependencies = { "nvim-lua/plenary.nvim" } },
     { "debugloop/telescope-undo.nvim", dependencies = { "nvim-telescope/telescope.nvim" } },
     { "akinsho/toggleterm.nvim" },
+    "klen/nvim-config-local",
     -- Languages
     { "Julian/lean.nvim", dependencies = { "neovim/nvim-lspconfig", "nvim-lua/plenary.nvim" } },
     { "mrcjkb/haskell-tools.nvim", dependencies = { "nvim-lua/plenary.nvim" }, version = "^2" },
@@ -51,6 +52,7 @@ require("lint")
 require("guess-indent").setup {}
 require("telescope").setup {}
 require("term")
+require("config-local").setup {}
 
 -- Settings
 require("general")
