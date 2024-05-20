@@ -51,6 +51,9 @@ function config_tmux() {
     $bind -n s-up select-pane -U
     $bind -n s-down select-pane -D
 
+    # variable
+    $set -ag update-environment " SSH_AUTH_SOCK "
+
     # Customize
     $set -g status 1
     $set -g status-interval 1
