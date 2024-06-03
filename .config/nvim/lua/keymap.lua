@@ -13,6 +13,9 @@ nnoremap("s", "<c-w>")
 --- Tab
 nnoremap("st", ":tabnew<cr>")
 
+noremap("<tab>", ">")
+noremap("<s-tab>", "<")
+
 nnoremap("<space>e", vim.diagnostic.open_float)
 -- LSP
 on_lsp_attach(function(ev)

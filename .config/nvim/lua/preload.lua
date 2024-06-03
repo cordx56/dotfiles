@@ -1,5 +1,5 @@
 -- Keymap
-local keymap = function(mode, before, after, opts)
+keymap = function(mode, before, after, opts)
     new_opts = { noremap = true, silent = true }
     if opts ~= nil then
         new_opts = vim.tbl_extend("force", new_opts, opts)
