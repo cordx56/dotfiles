@@ -41,6 +41,7 @@ require("lazy").setup({
     -- Languages
     { "Julian/lean.nvim", dependencies = { "neovim/nvim-lspconfig", "nvim-lua/plenary.nvim" } },
     { "mrcjkb/haskell-tools.nvim", dependencies = { "nvim-lua/plenary.nvim" }, version = "^2" },
+    "wuelnerdotexe/vim-astro",
 })
 
 -- Plugins
