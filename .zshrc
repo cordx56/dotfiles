@@ -27,6 +27,8 @@ compinit
 
 #setopt localoptions ksharrays
 
+ZVM_VI_INSERT_ESCAPE_BINDKEY=jj
+
 if [ -d ~/.zplug ]; then
 	source ~/.zplug/init.zsh
 	zplug 'zplug/zplug', hook-build:'zplug --self-manage'
@@ -46,6 +48,10 @@ bindkey	"\e[1~"	beginning-of-line
 bindkey	"\e[4~"	end-of-line
 bindkey	"\e[5~"	history-search-backward
 bindkey	"\e[6~"	history-search-forward
+
+# zsh vim keybind
+zvm_bindkey vicmd "H" beginning-of-line
+zvm_bindkey vicmd "L" end-of-line
 
 setopt auto_cd
 
