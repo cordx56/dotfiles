@@ -55,7 +55,7 @@ function config_tmux() {
     $set -ag update-environment " SSH_AUTH_SOCK "
 
     # Customize
-    $set -g status 1
+    #$set -g status 1
     $set -g status-interval 1
     local set_default="#[bg=$c_default_bg,fg=$c_default_fg]"
     local left_accent="#[bg=$c_blue,fg=$c_default_fg] $set_default"
@@ -65,15 +65,18 @@ function config_tmux() {
     $set -g window-status-format "$set_default #I$l_slash#W "
     $set -g window-status-current-format "#[bg=$c_default_bg,fg=$c_red]$lr_tri#[bg=$c_red,fg=$c_default_fg]#I#[bg=$c_default_bg,fg=$c_red]$ul_tri$set_default#W "
     local os_icon="?"
-    if [ "$(uname -o)" = 'Linux' ]; then
-        os_icon="#[fg=$c_yellow]$linux_icon"
-    elif [ "$(uname -o)" = 'Darwin' ]; then
-        os_icon="#[fg=$c_purple]$macos_icon"
-    fi
+    case "$(uname -s)" in
+        Darwin)
+            os_icon="#[fg=$c_purple]$macos_icon"
+            ;;
+        Linux)
+            os_icon="#[fg=$c_yellow]$linux_icon"
+            ;;
+    esac
     # Status lines
     local session_name="#[bg=$c_green,fg=$c_default_bg]$lh_div #[bg=$c_green,fg=$c_default_fg]#S #[bg=$c_default_bg,fg=$c_green]$lh_div$set_default"
     local windows="#{W:#{E:window-status-format},#{E:window-status-current-format}}"
-    $set -g status-format[0] "$left_accent  $os_icon $session_name $windows#[align=right]#{E:user}@#H  $right_accent"
+    $set -g status-format[0] "$left_accent  $os_icon $session_name $windows#[align=right] #{E:user}@#H  %Y-%m-%d %H:%M:%S  $right_accent"
     #$set -g status-format[1] "$left_accent  #[align=right]  $right_accent"
 }
 
