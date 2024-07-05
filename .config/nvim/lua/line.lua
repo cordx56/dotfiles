@@ -14,7 +14,7 @@ vim.api.nvim_create_autocmd({"BufAdd", "BufEnter", "BufFilePost"}, {
 
 require("lualine").setup {
     options = {
-        theme = "horizon",
+        theme = "catppuccin",
     },
     sections = {
         lualine_a = {"mode"},

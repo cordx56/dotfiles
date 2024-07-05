@@ -39,4 +39,19 @@ opt.undofile = true
 opt.autoread = true
 
 opt.termguicolors = true
-vim.cmd("colorscheme carbonfox")
+
+require("catppuccin").setup({
+    flavor = "mocha",
+    transparent_background = true,
+    color_overrides = {
+        mocha = {
+            base = "#000000",
+            mantle = "#000000",
+            crust = "#000000",
+        },
+    },
+    integrations = {
+        notify = true,
+    },
+})
+vim.cmd("colorscheme catppuccin")

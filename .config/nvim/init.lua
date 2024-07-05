@@ -20,6 +20,7 @@ require("lazy").setup({
     "lunarvim/horizon.nvim",
     "folke/tokyonight.nvim",
     "EdenEast/nightfox.nvim",
+    { "catppuccin/nvim", name = "catppuccin" },
     "nvim-lualine/lualine.nvim",
     "rmagatti/auto-session",
     { "windwp/nvim-autopairs", event = "InsertEnter" },
@@ -36,6 +37,7 @@ require("lazy").setup({
     { "debugloop/telescope-undo.nvim", dependencies = { "nvim-telescope/telescope.nvim" } },
     { "akinsho/toggleterm.nvim" },
     "klen/nvim-config-local",
+    "rcarriga/nvim-notify",
     -- Languages
     { "Julian/lean.nvim", dependencies = { "neovim/nvim-lspconfig", "nvim-lua/plenary.nvim" } },
     { "mrcjkb/haskell-tools.nvim", dependencies = { "nvim-lua/plenary.nvim" }, version = "^2" },
