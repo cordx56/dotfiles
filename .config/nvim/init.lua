@@ -38,11 +38,15 @@ require("lazy").setup({
     { "akinsho/toggleterm.nvim" },
     "klen/nvim-config-local",
     "rcarriga/nvim-notify",
+    'mrded/nvim-lsp-notify',
     -- Languages
     { "Julian/lean.nvim", dependencies = { "neovim/nvim-lspconfig", "nvim-lua/plenary.nvim" } },
     { "mrcjkb/haskell-tools.nvim", dependencies = { "nvim-lua/plenary.nvim" }, version = "^2" },
     "wuelnerdotexe/vim-astro",
 })
+
+-- Settings
+require("general")
 
 -- Plugins
 require("auto-session").setup()
@@ -56,7 +60,11 @@ require("guess-indent").setup {}
 require("telescope").setup {}
 require("term")
 require("config-local").setup {}
+vim.notify = require("notify")
+vim.notify.setup {
+    top_down = false,
+}
+require("lsp-notify").setup {}
 
--- Settings
-require("general")
+-- Settings (After plugin load)
 require("keymap")
