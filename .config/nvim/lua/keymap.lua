@@ -12,6 +12,7 @@ nvnoremap("<space>k", "<c-u>")
 nnoremap("s", "<c-w>")
 --- Tab
 nnoremap("st", ":tabnew<cr>")
+nnoremap("gr", "gT")
 
 noremap("<tab>", ">")
 noremap("<s-tab>", "<")

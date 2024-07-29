@@ -64,7 +64,7 @@ vim.notify = require("notify")
 vim.notify.setup {
     top_down = false,
 }
-require("lsp-notify").setup {}
+--require("lsp-notify").setup {}
 
 -- Settings (After plugin load)
 require("keymap")
