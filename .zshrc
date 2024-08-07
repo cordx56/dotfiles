@@ -185,6 +185,12 @@ export PIPENV_VENV_IN_PROJECT=true
 
 # iTerm2
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+if [ -e /usr/bin/osascript ]; then
+	imgpath="$HOME/Library/CloudStorage/OneDrive-cordx/Pictures/VRChat/2024-07/VRChat_2024-07-18_02-54-01.341_3840x2160.png"
+	if [ -e "$imgpath" ]; then
+		$HOME/.config/iterm2/iterm2bg.scpt "$imgpath"
+	fi
+fi
 
 # ==========================#
 # INSERT CHANGES ABOVE HERE #
