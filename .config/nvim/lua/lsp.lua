@@ -1,8 +1,13 @@
 local lspconfig = require("lspconfig")
 lspconfig.pyright.setup {}
 lspconfig.rust_analyzer.setup {
-    -- TODO: Check `type rust-analyzer` return value!
-    cmd = {"rustup", "run", "stable", "rust-analyzer"},
+    settings = {
+        ["rust-analyzer"] = {
+            rustc = {
+                source = "discover",
+            }
+        },
+    },
 }
 lspconfig.tsserver.setup {
     single_file_support = false,
