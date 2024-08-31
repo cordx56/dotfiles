@@ -6,8 +6,8 @@ nvnoremap("k", "gk")
 noremap("H", "^")
 noremap("L", "$")
 --- Page
-nvnoremap("<space>j", "<c-d>")
-nvnoremap("<space>k", "<c-u>")
+nvnoremap("J", "<c-d>")
+nvnoremap("K", "<c-u>")
 --- Split
 nnoremap("s", "<c-w>")
 --- Tab
