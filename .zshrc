@@ -164,7 +164,7 @@ _update_ssh_auth_sock() {
 	if [[ -n "$TMUX" ]]; then
 		local val
 		val=$(tmux show-environment | grep "^SSH_AUTH_SOCK=")
-		if [[ -n "$val" ]];
+		if [[ -n "$val" ]]; then
 			export $val
 		fi
 	fi
