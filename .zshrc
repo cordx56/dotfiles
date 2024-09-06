@@ -160,16 +160,27 @@ if which git 1>/dev/null 2>&1; then
 fi
 
 # 1Password
-if [ $(uname -s) = "Linux" ] \
-	&& [ -e "$HOME/.1password/agent.sock" ] \
-	&& [ -z "$SSH_AUTH_SOCK" ]; then
-	export SSH_AUTH_SOCK="$HOME/.1password/agent.sock"
-fi
-if [ $(uname -s) = "Darwin" ] \
-	&& [ -e "$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock" ] \
-	&& [[ "$SSH_AUTH_SOCK" =~ "Listeners$" ]]; then
-	export SSH_AUTH_SOCK="$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
-fi
+_update_ssh_auth_sock() {
+	if [[ -n "$TMUX" ]]; then
+		local val
+		val=$(tmux show-environment | grep "^SSH_AUTH_SOCK=")
+		if [[ -n "$val" ]];
+			export $val
+		fi
+	fi
+	if [ $(uname -s) = "Linux" ] \
+		&& [ -e "$HOME/.1password/agent.sock" ] \
+		&& [ -z "$SSH_AUTH_SOCK" ]; then
+		export SSH_AUTH_SOCK="$HOME/.1password/agent.sock"
+	fi
+	if [ $(uname -s) = "Darwin" ] \
+		&& [ -e "$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock" ] \
+		&& [[ "$SSH_AUTH_SOCK" =~ "Listeners$" ]]; then
+		export SSH_AUTH_SOCK="$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+	fi
+}
+add-zsh-hook precmd _update_ssh_auth_sock
+
 
 # Vim settings
 alias nv="nvim"
@@ -185,7 +196,7 @@ export PIPENV_VENV_IN_PROJECT=true
 
 # iTerm2
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-if [ -e /usr/bin/osascript ]; then
+if [ -e /usr/bin/osascript ] && false; then
 	imgpath="$HOME/Library/CloudStorage/OneDrive-cordx/Pictures/VRChat/2024-07/VRChat_2024-07-18_02-54-01.341_3840x2160.png"
 	if [ -e "$imgpath" ]; then
 		$HOME/.config/iterm2/iterm2bg.scpt "$imgpath"
