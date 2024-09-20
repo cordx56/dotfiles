@@ -18,6 +18,16 @@ noremap("<tab>", ">")
 noremap("<s-tab>", "<")
 
 nnoremap("<space>e", vim.diagnostic.open_float)
+nnoremap("<c-]>", function()
+    vim.diagnostic.goto_next({
+        severtity = { min = vim.diagnostic.severity.WARN }
+    })
+end)
+nnoremap("<c-[>", function()
+    vim.diagnostic.goto_prev({
+        severtity = { min = vim.diagnostic.severity.WARN }
+    })
+end)
 -- LSP
 on_lsp_attach(function(ev)
     local opts = { buffer = ev.buf }
