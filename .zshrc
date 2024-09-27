@@ -196,12 +196,28 @@ export PIPENV_VENV_IN_PROJECT=true
 
 # iTerm2
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-if [ -e /usr/bin/osascript ] && false; then
-	imgpath="$HOME/Library/CloudStorage/OneDrive-cordx/Pictures/VRChat/2024-07/VRChat_2024-07-18_02-54-01.341_3840x2160.png"
-	if [ -e "$imgpath" ]; then
-		$HOME/.config/iterm2/iterm2bg.scpt "$imgpath"
+
+# my scripts
+.env() {
+	local current="$(pwd)"
+	local argfrom=1
+	local envfile="${current}/.env"
+	if [[ "$1" = "-f" ]]; then
+		argfrom=3
+		envfile="${current}/${2}"
 	fi
-fi
+	env $(cat "${envfile}") "${@:${argfrom}}"
+}
+# tmux
+_tmux_wrap() {
+	if [[ "$1" = "n" ]]; then
+		tmux new-session -d -s "$2" && \
+			(tmux switch-client -t "$2" || tmux attach-session -t "$2")
+	else
+		tmux "$@"
+	fi
+}
+alias tmux=_tmux_wrap
 
 # ==========================#
 # INSERT CHANGES ABOVE HERE #
