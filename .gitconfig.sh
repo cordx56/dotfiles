@@ -6,16 +6,11 @@ git config --global user.signingkey "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDMWey4
 ## signing
 git config --global commit.gpgsign true
 git config --global gpg.format ssh
-case "$(uname -s)" in
-	Darwin)
-		git config --global gpg.ssh.program "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
-		;;
-esac
 ## alias
 git config --global alias.s status
 git config --global alias.b branch
 git config --global alias.w switch
-git config --global alias.r restore
+git config --global alias.r "restore --staged"
 git config --global alias.d diff
 git config --global alias.a add
 git config --global alias.c commit
