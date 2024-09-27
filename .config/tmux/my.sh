@@ -5,6 +5,10 @@ function u() {
     printf $(printf '\\%o' $(printf %08x "0x$1" | sed 's/../0x& /g')) | iconv -f UTF-32BE -t UTF-8
 }
 
+function styled() {
+    echo "#[$1]#[push-default]#[default]$2#[pop-default]#[default]"
+}
+
 function config_tmux() {
     local t="tmux"
     local bind="$t bind"
@@ -58,25 +62,25 @@ function config_tmux() {
     #$set -g status 1
     $set -g status-interval 1
     local set_default="#[bg=$c_default_bg,fg=$c_default_fg]"
-    local left_accent="#[bg=$c_blue,fg=$c_default_fg] $set_default"
-    local right_accent="#[bg=$c_red] $set_default"
+    local left_accent="$(styled "bg=$c_blue,fg=$c_default_fg" " ")"
+    local right_accent="$(styled "bg=$c_red" " ")"
     $set -g status-bg $c_default_bg
     $set -g status-fg $c_default_fg
-    $set -g window-status-format "$set_default #I$l_slash#W "
-    $set -g window-status-current-format "#[bg=$c_default_bg,fg=$c_red]$lr_tri#[bg=$c_red,fg=$c_default_fg]#I#[bg=$c_default_bg,fg=$c_red]$ul_tri$set_default#W "
+    $set -g window-status-format " #I$l_slash#W "
+    $set -g window-status-current-format "$(styled "bg=$c_default_bg,fg=$c_red" "$lr_tri")$(styled "bg=$c_red,fg=$c_default_fg" "#I")$(styled "bg=$c_default_bg,fg=$c_red" "$ul_tri")#W "
     local os_icon="?"
     case "$(uname -s)" in
         Darwin)
-            os_icon="#[fg=$c_purple]$macos_icon"
+            os_icon="$(styled "fg=$c_purple" "$macos_icon")"
             ;;
         Linux)
-            os_icon="#[fg=$c_yellow]$linux_icon"
+            os_icon="$(styled "fg=$c_yellow" "$linux_icon")"
             ;;
     esac
     # Status lines
-    local session_name="#[bg=$c_green,fg=$c_default_bg]$lh_div #[bg=$c_green,fg=$c_default_fg]#S #[bg=$c_default_bg,fg=$c_green]$lh_div$set_default"
+    local session_name="$(styled "bg=$c_green,fg=$c_default_bg" "$lh_div ")$(styled "bg=$c_green,fg=$c_default_fg" "#S ")$(styled "bg=$c_default_bg,fg=$c_green" "$lh_div")"
     local windows="#{W:#{E:window-status-format},#{E:window-status-current-format}}"
-    $set -g status-format[0] "$left_accent  $os_icon $session_name $windows#[align=right] #{E:user}@#H  %Y-%m-%d %H:%M:%S  $right_accent"
+    $set -g status-format[0] "$left_accent  $os_icon $session_name $windows$(styled "align=right" "#{E:user}@#H  %Y-%m-%d %H:%M:%S  $right_accent")"
     #$set -g status-format[1] "$left_accent  #[align=right]  $right_accent"
 }
 
