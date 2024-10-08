@@ -38,7 +38,8 @@ require("lazy").setup({
     { "akinsho/toggleterm.nvim" },
     "klen/nvim-config-local",
     "rcarriga/nvim-notify",
-    'mrded/nvim-lsp-notify',
+    "mrded/nvim-lsp-notify",
+    "lewis6991/gitsigns.nvim",
     -- Languages
     { "Julian/lean.nvim", dependencies = { "neovim/nvim-lspconfig", "nvim-lua/plenary.nvim" } },
     { "mrcjkb/haskell-tools.nvim", dependencies = { "nvim-lua/plenary.nvim" }, version = "^2" },
@@ -64,6 +65,7 @@ vim.notify = require("notify")
 vim.notify.setup {
     top_down = false,
 }
+require('gitsigns').setup()
 --require("lsp-notify").setup {}
 
 -- Settings (After plugin load)
