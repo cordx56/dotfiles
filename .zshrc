@@ -217,7 +217,7 @@ _tmux_wrap() {
 		tmux "$@"
 	fi
 }
-alias tmux=_tmux_wrap
+alias t=_tmux_wrap
 
 # ==========================#
 # INSERT CHANGES ABOVE HERE #
