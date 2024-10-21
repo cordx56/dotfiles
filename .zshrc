@@ -25,6 +25,15 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+function loaded {
+	(echo "$LOADED" | grep "$1:" > /dev/null) || \
+		(export LOADED="$1:$LOADED" && false)
+}
+function setpath {
+	(echo "$PATH" | grep "$1:" > /dev/null) || \
+		export PATH="$1:$PATH"
+}
+
 #setopt localoptions ksharrays
 
 ZVM_VI_INSERT_ESCAPE_BINDKEY=jj
@@ -65,30 +74,30 @@ esac
 export VISUAL="vim"
 
 # Path
-export PATH="$HOME/.local/bin:$PATH"
+setpath "$HOME/.local/bin"
 ## Rust
-export PATH="$HOME/.cargo/bin:$PATH"
+setpath "$HOME/.cargo/bin"
 ## Golang
 if which go 1>/dev/null 2>&1; then
 	export GOPATH="$HOME/.go"
 	export GOENV_ROOT="$HOME/.goenv"
-	export PATH="$GOENV_ROOT/bin:$PATH"
-	export PATH="$GOPATH/bin:$PATH"
+	setpath "$GOENV_ROOT/bin"
+	setpath "$GOPATH/bin"
 fi
 ## Python
 ### pyenv
 if [ -d "$HOME/.pyenv" ]; then
 	export PYENV_ROOT="$HOME/.pyenv"
-	export PATH="$PYENV_ROOT/bin:$PATH"
+	setpath "$PYENV_ROOT/bin"
 fi
 ## Ruby
 if which gem 1>/dev/null 2>&1; then
-	export PATH="`ruby -e 'puts Gem.user_dir'`/bin:$PATH"
+	setpath "`ruby -e 'puts Gem.user_dir'`/bin"
 fi
 ## Node
 ### npm
 export NPM_PACKAGES="$HOME/.npm-packages"
-export PATH="$NPM_PACKAGES/bin:$PATH"
+setpath "$NPM_PACKAGES/bin"
 ### nvm
 if which nvm 1>/dev/null 2>&1; then
 	export NVM_DIR="$HOME/.nvm"
@@ -97,23 +106,26 @@ if which nvm 1>/dev/null 2>&1; then
 fi
 ## PHP composer
 if which php 1>/dev/null 2>&1; then
-	export PATH="$HOME/.config/composer/vendor/bin:$PATH"
+	setpath "$HOME/.config/composer/vendor/bin"
 fi
 # Haskell
 [ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
 ## Lean
 if [ -e "$HOME/.elan/env" ]; then
-	source "$HOME/.elan/env"
+	loaded "$HOME/.elan/env" && \
+		source "$HOME/.elan/env"
 fi
 ## TeX
 export TEXMFCNF="$HOME/.texmf:"
 alias pandoc-beamer="pandoc -t beamer --slide-level=3"
 ## Android
 export ANDROID_HOME="$HOME/Android/Sdk"
-export PATH="$PATH:$ANDROID_HOME/emulator"
-export PATH="$PATH:$ANDROID_HOME/tools"
-export PATH="$PATH:$ANDROID_HOME/tools/bin"
-export PATH="$PATH:$ANDROID_HOME/platform-tools"
+if [ -d "$ANDROID_HOME" ]; then
+	setpath "$ANDROID_HOME/emulator"
+	setpath "$ANDROID_HOME/tools"
+	setpath "$ANDROID_HOME/tools/bin"
+	setpath "$ANDROID_HOME/platform-tools"
+fi
 
 # anyenv
 if which anyenv 1>/dev/null 2>&1; then
@@ -121,11 +133,12 @@ if which anyenv 1>/dev/null 2>&1; then
 fi
 # docker
 if [ -d "$HOME/.docker/bin" ]; then
-	export PATH="$HOME/.docker/bin:$PATH"
+	setpath "$HOME/.docker/bin"
 fi
 # homebrew
 if [ -e /opt/homebrew/bin/brew ]; then
-	eval "$(/opt/homebrew/bin/brew shellenv)"
+	loaded "/opt/homebrew/bin/brew" || \
+		eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
 # Completion
@@ -195,7 +208,9 @@ alias emacs="emacs -nw"
 export PIPENV_VENV_IN_PROJECT=true
 
 # iTerm2
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+loaded "${HOME}/.iterm2_shell_integration.zsh" || \
+	(test -e "${HOME}/.iterm2_shell_integration.zsh" && \
+	source "${HOME}/.iterm2_shell_integration.zsh")
 
 # my scripts
 .env() {
@@ -225,18 +240,21 @@ alias t=_tmux_wrap
 
 # asdf
 if [ -d "$HOME/.asdf" ]; then
-	source $HOME/.asdf/asdf.sh
+	loaded "$HOME/.asdf" || \
+		source $HOME/.asdf/asdf.sh
 fi
 # mise
 if [ -f "$HOME/.local/bin/mise" ]; then
-	eval "$($HOME/.local/bin/mise activate zsh)"
+	loaded "$HOME/.local/bin/mise" || \
+		eval "$($HOME/.local/bin/mise activate zsh)"
 fi
 # rye
 if [ -e "$HOME/.rye/env" ]; then
-	source "$HOME/.rye/env"
+	loaded "$HOME/.rye/env" || \
+		source "$HOME/.rye/env"
 fi
 
 #
 # PowerLevel9K
 #
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+[[ ! -f ~/.p10k.zsh ]] || loaded ~/.p10k.zsh || source ~/.p10k.zsh
