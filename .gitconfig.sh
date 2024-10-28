@@ -15,3 +15,5 @@ git config --global alias.d diff
 git config --global alias.a add
 git config --global alias.c commit
 git config --global alias.l "log --all --graph --decorate --pretty=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%ai%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an <%ae>%C(reset)'"
+## others
+git config --global http.postBuffer 100M
