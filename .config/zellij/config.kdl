@@ -2,12 +2,19 @@
 keybinds {
     // Custom key bind
     shared_except "locked" {
-        bind "Ctrl d" { Detach; }
+        bind "Ctrl u" { Detach; }
         bind "Ctrl t" { NewTab; }
         bind "Ctrl h" { MoveFocusOrTab "Left"; }
         bind "Ctrl l" { MoveFocusOrTab "Right"; }
+        bind "Ctrl j" { MoveFocusOrTab "Down"; }
+        bind "Ctrl k" { MoveFocusOrTab "Up"; }
         bind "Ctrl p" { NewPane "Down"; }
         bind "Ctrl v" { NewPane "Right"; }
+        bind "Ctrl s" {
+            LaunchOrFocusPlugin "zellij:session-manager" {
+                floating true
+            }
+        }
     }
 
     normal {
@@ -167,7 +174,7 @@ keybinds {
         bind "Ctrl n" { SwitchToMode "Resize"; }
     }
     shared_except "scroll" "locked" {
-        bind "Ctrl s" { SwitchToMode "Scroll"; }
+        //bind "Ctrl s" { SwitchToMode "Scroll"; }
     }
     shared_except "session" "locked" {
         bind "Ctrl o" { SwitchToMode "Session"; }
@@ -188,6 +195,23 @@ plugins {
     status-bar { path "status-bar"; }
     strider { path "strider"; }
     compact-bar { path "compact-bar"; }
+}
+
+theme "catppuccin-mocha"
+themes {
+    mocha{
+        fg "#cdd6f4"
+        bg "#1e1e2e"
+        red "#f38ba8"
+        green "#a6e3a1"
+        yellow "#f9e2af"
+        blue "#89b4fa"
+        magenta "#eba0ac"
+        orange "#fab387"
+        cyan "#74c7ec"
+        black 0 0 0
+        white 255 255 255
+    }
 }
 
 // Choose what to do when zellij receives SIGTERM, SIGINT, SIGQUIT or SIGHUP

@@ -233,6 +233,15 @@ _tmux_wrap() {
 	fi
 }
 alias t=_tmux_wrap
+# zellij
+_zellij_wrap() {
+	if [[ "$1" = "n" ]]; then
+		zellij -s "$2"
+	else
+		zellij "$@"
+	fi
+}
+alias z=_zellij_wrap
 
 # ==========================#
 # INSERT CHANGES ABOVE HERE #
