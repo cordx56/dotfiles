@@ -8,7 +8,7 @@ layout {
             hide_frame_for_single_pane "true"
 
             format_left  "{mode}#[fg=#89B4FA,bg=#181825,bold]  {session} #[bg=#181825] {tabs}"
-            format_right "{command_kubectx}#[fg=#424554,bg=#181825]::{command_kubens}{command_username}{command_hostname}{datetime}#[bg=#181825] #[bg=#cc0000] "
+            format_right "#[fg=#424554,bg=#181825]{command_username}{command_hostname}{datetime}#[bg=#181825] #[bg=#cc0000] "
             format_space "#[bg=#181825]"
 
             mode_normal          "#[bg=#89B4FA] "
@@ -16,18 +16,10 @@ layout {
             mode_default_to_mode "tmux"
 
             tab_normal               "#[fg=#6C7086,bg=#181825] {index}\u{e0bb}{name} {fullscreen_indicator}{sync_indicator}{floating_indicator}"
-            tab_active               "#[fg=#cc0000,bg=#181825]\u{e0ba}#[fg=#9399b2,bg=#cc0000]{index}#[fg=#cc0000,bg=181825]\u{e0bc}#[fg=#9399B2,bg=#181825]{name} {fullscreen_indicator}{sync_indicator}{floating_indicator}"
+            tab_active               "#[fg=#cc0000,bg=#181825]\u{e0ba}#[fg=#9399b2,bg=#cc0000]{index}#[fg=#cc0000,bg=#181825]\u{e0bc}#[fg=#9399B2,bg=#181825]{name} {fullscreen_indicator}{sync_indicator}{floating_indicator}"
             tab_fullscreen_indicator "□ "
             tab_sync_indicator       "  "
             tab_floating_indicator   "󰉈 "
-
-            command_kubectx_command  "kubectx -c"
-            command_kubectx_format   "#[fg=#6C7086,bg=#181825,italic] {stdout}"
-            command_kubectx_interval "2"
-
-            command_kubens_command  "kubens -c"
-            command_kubens_format   "#[fg=#6C7086,bg=#181825]{stdout} "
-            command_kubens_interval "2"
 
             command_hostname_command "hostname"
             command_hostname_format  "#[fg=#9399B2,bg=#181825]@{stdout} "
