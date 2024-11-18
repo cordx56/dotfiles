@@ -174,13 +174,6 @@ fi
 
 # 1Password
 _update_ssh_auth_sock() {
-	if [[ -n "$TMUX" ]]; then
-		local val
-		val=$(tmux show-environment | grep "^SSH_AUTH_SOCK=")
-		if [[ -n "$val" ]]; then
-			export $val
-		fi
-	fi
 	if [ $(uname -s) = "Linux" ] \
 		&& [ -e "$HOME/.1password/agent.sock" ] \
 		&& [ -z "$SSH_AUTH_SOCK" ]; then
@@ -235,13 +228,19 @@ _tmux_wrap() {
 alias t=_tmux_wrap
 # zellij
 _zellij_wrap() {
-	if [[ "$1" = "n" ]]; then
-		zellij -s "$2"
+	if [[ "$1" = "a" ]]; then
+		zellij a -c "${@:2}"
 	else
 		zellij "$@"
 	fi
 }
 alias z=_zellij_wrap
+
+shared_hook_file="$HOME/.zsh_hook"
+_shared_hook() {
+    source "$shared_hook_file"
+}
+add-zsh-hook precmd _shared_hook
 
 # ==========================#
 # INSERT CHANGES ABOVE HERE #
