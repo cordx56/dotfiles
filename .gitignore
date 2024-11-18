@@ -4,6 +4,7 @@
 # Allow specific files
 !.gitignore
 !.zshrc
+!.zprofile
 !.p10k.zsh
 !.gitconfig.sh
 !.vimrc
