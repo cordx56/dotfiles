@@ -185,7 +185,12 @@ _update_ssh_auth_sock() {
 		export SSH_AUTH_SOCK="$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 	fi
 }
-add-zsh-hook precmd _update_ssh_auth_sock
+shared_hook_file="$HOME/.zsh_hook"
+_shared_hook() {
+    source "$shared_hook_file"
+	_update_ssh_auth_sock
+}
+add-zsh-hook precmd _shared_hook
 
 
 # Vim settings
@@ -235,12 +240,6 @@ _zellij_wrap() {
 	fi
 }
 alias z=_zellij_wrap
-
-shared_hook_file="$HOME/.zsh_hook"
-_shared_hook() {
-    source "$shared_hook_file"
-}
-add-zsh-hook precmd _shared_hook
 
 # ==========================#
 # INSERT CHANGES ABOVE HERE #
