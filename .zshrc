@@ -221,6 +221,19 @@ loaded "${HOME}/.iterm2_shell_integration.zsh" || \
 	fi
 	env $(cat "${envfile}") "${@:${argfrom}}"
 }
+# ssh
+ssh_dl_port="21221"
+dl() {
+	echo "http://localhost:${ssh_dl_port}/"
+	cat << EOF | nc -l "$ssh_dl_port" > /dev/null
+HTTP/1.0 200 Ok
+Content-Type: application/octet-stream
+Content-Disposition: attachment; filename="$(basename "$1")"
+Content-Length: $(wc -c "$1" | awk '{ print $1 }')
+
+$(cat "$1")
+EOF
+}
 # tmux
 _tmux_wrap() {
 	if [[ "$1" = "n" ]]; then
