@@ -173,7 +173,7 @@ if which git 1>/dev/null 2>&1; then
 fi
 
 # 1Password
-_update_ssh_auth_sock() {
+_op_ssh_auth_sock() {
 	if [ $(uname -s) = "Linux" ] \
 		&& [ -e "$HOME/.1password/agent.sock" ] \
 		&& [ -z "$SSH_AUTH_SOCK" ]; then
@@ -185,10 +185,24 @@ _update_ssh_auth_sock() {
 		export SSH_AUTH_SOCK="$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 	fi
 }
+
 shared_hook_file="$HOME/.zsh_hook"
+if [[ $SHLVL -eq 1 ]]; then
+	# update hook file permission
+	if [ ! -f "$shared_hook_file" ]; then
+		touch "$shared_hook_file"
+	fi
+	chmod 600 "$shared_hook_file"
+	# update $SSH_AUTH_SOCK
+	if [[ -n "$SSH_AUTH_SOCK" ]]; then
+		tmp="$(cat "$shared_hook_file" | grep -v "export SSH_AUTH_SOCK=")"
+		echo "export SSH_AUTH_SOCK=$SSH_AUTH_SOCK" > "$shared_hook_file"
+		echo "$tmp" >> "$shared_hook_file"
+	fi
+fi
 _shared_hook() {
     source "$shared_hook_file"
-	_update_ssh_auth_sock
+	_op_ssh_auth_sock
 }
 add-zsh-hook precmd _shared_hook
 
