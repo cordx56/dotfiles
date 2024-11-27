@@ -187,22 +187,24 @@ _op_ssh_auth_sock() {
 }
 
 shared_hook_file="$HOME/.zsh_hook"
-if [[ $SHLVL -eq 1 ]]; then
-	# update hook file permission
-	if [ ! -f "$shared_hook_file" ]; then
-		touch "$shared_hook_file"
-	fi
-	chmod 600 "$shared_hook_file"
-	# update $SSH_AUTH_SOCK
-	if [[ -n "$SSH_AUTH_SOCK" ]]; then
-		tmp="$(cat "$shared_hook_file" | grep -v "export SSH_AUTH_SOCK=")"
-		echo "export SSH_AUTH_SOCK=$SSH_AUTH_SOCK" > "$shared_hook_file"
-		echo "$tmp" >> "$shared_hook_file"
-	fi
-fi
 _shared_hook() {
-    source "$shared_hook_file"
-	_op_ssh_auth_sock
+	if [[ $SHLVL -eq 1 ]]; then
+		# update hook file permission
+		if [ ! -f "$shared_hook_file" ]; then
+			touch "$shared_hook_file"
+		fi
+		chmod 600 "$shared_hook_file"
+		# update $SSH_AUTH_SOCK
+		_op_ssh_auth_sock
+		if [ -n "$SSH_AUTH_SOCK" ]; then
+			cat << EOF > "$shared_hook_file"
+$(cat "$shared_hook_file" | grep -v "export SSH_AUTH_SOCK=")
+export SSH_AUTH_SOCK=$SSH_AUTH_SOCK
+EOF
+		fi
+	else
+		source "$shared_hook_file"
+	fi
 }
 add-zsh-hook precmd _shared_hook
 
@@ -239,14 +241,17 @@ loaded "${HOME}/.iterm2_shell_integration.zsh" || \
 ssh_dl_port="21221"
 dl() {
 	echo "http://localhost:${ssh_dl_port}/"
-	cat << EOF | nc -l "$ssh_dl_port" > /dev/null
-HTTP/1.0 200 Ok
+	while true
+	do
+		cat << EOF | nc -l "$ssh_dl_port" > /dev/null
+HTTP/1.1 200 Ok
 Content-Type: application/octet-stream
 Content-Disposition: attachment; filename="$(basename "$1")"
 Content-Length: $(wc -c "$1" | awk '{ print $1 }')
 
 $(cat "$1")
 EOF
+	done
 }
 # tmux
 _tmux_wrap() {
@@ -261,7 +266,11 @@ alias t=_tmux_wrap
 # zellij
 _zellij_wrap() {
 	if [[ "$1" = "a" ]]; then
-		zellij a -c "${@:2}"
+		if [ -n "$2" ]; then
+			zellij a -c "${@:2}"
+		else
+			zellij a --index 0
+		fi
 	else
 		zellij "$@"
 	fi
