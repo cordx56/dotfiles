@@ -199,7 +199,7 @@ _shared_hook() {
 		if [ -n "$SSH_AUTH_SOCK" ]; then
 			cat << EOF > "$shared_hook_file"
 $(cat "$shared_hook_file" | grep -v "export SSH_AUTH_SOCK=")
-export SSH_AUTH_SOCK=$SSH_AUTH_SOCK
+export SSH_AUTH_SOCK="$SSH_AUTH_SOCK"
 EOF
 		fi
 	else
