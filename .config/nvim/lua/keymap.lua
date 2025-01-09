@@ -18,12 +18,12 @@ noremap("<tab>", ">")
 noremap("<s-tab>", "<")
 
 nnoremap("<space>e", vim.diagnostic.open_float)
-nnoremap("<c-]>", function()
+nnoremap("]", function()
     vim.diagnostic.goto_next({
         severtity = { min = vim.diagnostic.severity.WARN }
     })
 end)
-nnoremap("<c-[>", function()
+nnoremap("[", function()
     vim.diagnostic.goto_prev({
         severtity = { min = vim.diagnostic.severity.WARN }
     })
