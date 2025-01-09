@@ -78,9 +78,9 @@ function config_tmux() {
             ;;
     esac
     # Status lines
-    local session_name="$(styled "bg=$c_green,fg=$c_default_bg" "$lh_div ")$(styled "bg=$c_green,fg=$c_default_fg" "#S ")$(styled "bg=$c_default_bg,fg=$c_green" "$lh_div")"
-    local windows="#{W:#{E:window-status-format},#{E:window-status-current-format}}"
-    $set -g status-format[0] "$left_accent  $os_icon $session_name $windows$(styled "align=right" "#{E:user}@#H  %Y-%m-%d %H:%M:%S  $right_accent")"
+    local session_name="$(styled "fg=#89b4fa" "  #S ")"
+    local windows=" #{W:#{E:window-status-format},#{E:window-status-current-format}} "
+    $set -g status-format[0] "$left_accent  $os_icon$session_name$windows$(styled "align=right" "#{E:user}@#H  %Y-%m-%d %H:%M:%S  $right_accent")"
     #$set -g status-format[1] "$left_accent  #[align=right]  $right_accent"
 }
 
