@@ -1,0 +1,4 @@
+[submodule ".secrets"]
+	path = .secrets
+	url = git@github.com:cordx56/secret-dotfiles.git
+	branch = main
