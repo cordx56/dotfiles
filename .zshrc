@@ -255,7 +255,7 @@ EOF
 }
 # tmux
 _tmux_wrap() {
-	if [[ "$1" = "n" ]]; then
+	if [[ "$1" = "n" ]] || [[ "$1" = "a" ]]; then
 		tmux new-session -d -s "$2" && \
 			(tmux switch-client -t "$2" || tmux attach-session -t "$2")
 	else
@@ -295,6 +295,11 @@ fi
 if [ -e "$HOME/.rye/env" ]; then
 	loaded "$HOME/.rye/env" || \
 		source "$HOME/.rye/env"
+fi
+
+if [ -f "$HOME/.secrets/zshrc" ]; then
+	loaded "$HOME/.secrets/zshrc" || \
+		source "$HOME/.secrets/zshrc"
 fi
 
 #

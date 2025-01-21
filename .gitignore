@@ -11,6 +11,8 @@
 !.latexmkrc
 !.arch-setup.sh
 !.npmrc
+!.secrets/
+!.secrets/**
 
 !.config/fish/
 !.config/fish/config.fish
