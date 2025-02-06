@@ -60,3 +60,6 @@ end
 nnoremap("Tp", term_func({ direction = "horizontal" }))
 nnoremap("Tv", term_func({ direction = "vertical" }))
 nnoremap("T", term_func({ direction = "float" }))
+
+-- AI
+nnoremap("<c-a>", ":AvanteToggle<cr>")

@@ -255,7 +255,7 @@ EOF
 }
 # tmux
 _tmux_wrap() {
-	if [[ "$1" = "n" ]] || [[ "$1" = "a" ]]; then
+	if [[ "$1" = "n" ]]; then
 		tmux new-session -d -s "$2" && \
 			(tmux switch-client -t "$2" || tmux attach-session -t "$2")
 	else
