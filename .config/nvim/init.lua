@@ -48,7 +48,7 @@ require("lazy").setup({
     "sindrets/diffview.nvim",
     {
         "yetone/avante.nvim",
-        tag = "v0.0.15",
+        tag = "v0.0.21",
         event = "VeryLazy",
         lazy = false,
         version = false,
