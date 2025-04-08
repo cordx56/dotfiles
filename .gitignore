@@ -56,6 +56,9 @@
 !.config/nvim/lua/
 !.config/nvim/lua/**
 
+!.emacs.d/
+!.emacs.d/init.el
+
 !.texmf/
 !.texmf/texmf.cnf
 !.texmf/tex/
