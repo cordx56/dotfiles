@@ -44,7 +44,7 @@ require("lazy").setup({
     { "Julian/lean.nvim",          dependencies = { "neovim/nvim-lspconfig", "nvim-lua/plenary.nvim" } },
     { "mrcjkb/haskell-tools.nvim", dependencies = { "nvim-lua/plenary.nvim" },                         version = "^2" },
     "wuelnerdotexe/vim-astro",
-    { "cordx56/rustowl", dependencies = { "neovim/nvim-lspconfig" } },
+    { "cordx56/rustowl", version = "*", opts = { auto_enable = true } dependencies = { "neovim/nvim-lspconfig" } },
     "sindrets/diffview.nvim",
     {
         "yetone/avante.nvim",
@@ -98,7 +98,7 @@ require("line")
 require("tree")
 require("lsp")
 require("completion")
-require("lint")
+-- require("lint")
 require("guess-indent").setup {}
 require("telescope").setup {}
 require("term")
