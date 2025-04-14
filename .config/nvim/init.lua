@@ -31,7 +31,7 @@ require("lazy").setup({
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
     "hrsh7th/nvim-cmp",
-    { "jose-elias-alvarez/null-ls.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
+    -- { "jose-elias-alvarez/null-ls.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
     "NMAC427/guess-indent.nvim",
     { "nvim-telescope/telescope.nvim",   tag = "0.1.2",                                     dependencies = { "nvim-lua/plenary.nvim" } },
     { "debugloop/telescope-undo.nvim",   dependencies = { "nvim-telescope/telescope.nvim" } },
@@ -44,8 +44,14 @@ require("lazy").setup({
     { "Julian/lean.nvim",          dependencies = { "neovim/nvim-lspconfig", "nvim-lua/plenary.nvim" } },
     { "mrcjkb/haskell-tools.nvim", dependencies = { "nvim-lua/plenary.nvim" },                         version = "^2" },
     "wuelnerdotexe/vim-astro",
-    { "cordx56/rustowl", version = "*", opts = { auto_enable = true } dependencies = { "neovim/nvim-lspconfig" } },
+    { "cordx56/rustowl", version = "*", opts = { auto_enable = true }, dependencies = { "neovim/nvim-lspconfig" } },
     "sindrets/diffview.nvim",
+    {
+        "linrongbin16/lsp-progress.nvim",
+        config = function()
+          require("lsp-progress").setup()
+        end,
+    },
     {
         "yetone/avante.nvim",
         tag = "v0.0.21",

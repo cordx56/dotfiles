@@ -25,10 +25,20 @@ require("lualine").setup {
                 file_status = true,
                 newfile_status = true,
                 path = 1,
-            }
+            },
+            function()
+                return require("lsp-progress").progress()
+            end,
         },
         lualine_x = {"encoding", "fileformat", "filetype"},
         lualine_y = {},
         lualine_z = {"progress", "location"},
     },
 }
+
+vim.api.nvim_create_augroup("lualine_augroup", { clear = true })
+vim.api.nvim_create_autocmd("User", {
+    group = "lualine_augroup",
+    pattern = "LspProgressStatusUpdated",
+    callback = require("lualine").refresh,
+})

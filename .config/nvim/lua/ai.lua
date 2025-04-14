@@ -6,7 +6,7 @@ require('avante').setup {
     tokenizer = "tiktoken",
     openai = {
         endpoint = "https://api.openai.com/v1",
-        model = "gpt-4.5-preview",
+        model = "o1",
         timeout = 60000,
         temperature = 0,
         max_tokens = 8192,

@@ -12,7 +12,6 @@ lspconfig.rust_analyzer.setup {
         },
     },
 }
-lspconfig.rustowlsp.setup {}
 lspconfig.ts_ls.setup {
     single_file_support = false,
     root_dir = lspconfig.util.root_pattern("package.json"),
@@ -47,3 +46,5 @@ lspconfig.lua_ls.setup({
         },
     },
 })
+
+lspconfig.terraformls.setup {}
