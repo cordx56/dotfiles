@@ -54,6 +54,7 @@ function config_tmux() {
     $bind -n s-right select-pane -R
     $bind -n s-up select-pane -U
     $bind -n s-down select-pane -D
+    $bind -n c-w kill-window
 
     # variable
     $set -ag update-environment " SSH_AUTH_SOCK "
