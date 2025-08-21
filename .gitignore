@@ -34,6 +34,9 @@
 !.config/byobu/profile.tmux
 !.config/byobu/status
 
+!.config/ghostty/
+!.config/ghostty/**
+
 !.ssh/
 !.ssh/config
 !.ssh/conf.d/

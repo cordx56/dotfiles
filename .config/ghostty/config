@@ -1,0 +1,16 @@
+font-family = "CommitMono Nerd Font"
+font-family = "Hiragino Sans W3"
+font-size = 16
+font-feature = -calt, -liga, -dlig
+
+theme = ElementaryRed
+background-opacity = 0.9
+background-blur = 4
+
+link-url = true
+
+macos-titlebar-style = tabs
+clipboard-read = allow
+clipboard-write = allow
+clipboard-trim-trailing-spaces = true
+auto-update = "check"
