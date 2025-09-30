@@ -176,7 +176,7 @@ fi
 _op_ssh_auth_sock() {
 	if [ $(uname -s) = "Linux" ] \
 		&& [ -e "$HOME/.1password/agent.sock" ] \
-		&& [ -z "$SSH_AUTH_SOCK" ]; then
+		&& [[ "$SSH_AUTH_SOCK" != *agent* ]]; then
 		export SSH_AUTH_SOCK="$HOME/.1password/agent.sock"
 	fi
 	if [ $(uname -s) = "Darwin" ] \
