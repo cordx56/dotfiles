@@ -4,12 +4,14 @@ require('avante').setup {
     provider = "openai",
     auto_suggestions_provider = "claude",
     tokenizer = "tiktoken",
-    openai = {
-        endpoint = "https://api.openai.com/v1",
-        model = "o1",
-        timeout = 60000,
-        temperature = 0,
-        max_tokens = 8192,
+    providers = {
+        openai = {
+            endpoint = "https://api.openai.com/v1",
+            model = "gpt-5",
+            timeout = 60000,
+            -- temperature = 1,
+            --max_tokens = 8192,
+        },
     },
     behaviour = {
         auto_focus_sidebar = true,

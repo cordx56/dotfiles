@@ -1,5 +1,7 @@
 local opt = vim.opt
 
+vim.g.mapleader = " "
+
 -- Visual
 opt.number = true
 opt.signcolumn = "yes"
