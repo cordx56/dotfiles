@@ -38,8 +38,6 @@ opt.smartcase = true
 -- undo
 opt.undofile = true
 
-opt.autoread = true
-
 opt.termguicolors = true
 
 require("catppuccin").setup({

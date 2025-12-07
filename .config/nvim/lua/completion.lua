@@ -11,5 +11,18 @@ cmp.setup({
         { name = "nvim_lsp" },
         { name = "buffer" },
         { name = "path" },
+        { name = "minuet" },
     }),
+    performance = {
+        fetching_timeout = 2000,
+    },
 })
+
+require("minuet").setup {
+    provider = "openai",
+    provider_options = {
+        openai = {
+            model = "gpt-5-mini",
+        },
+    },
+}

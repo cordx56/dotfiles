@@ -40,6 +40,7 @@ require("lazy").setup({
     "rcarriga/nvim-notify",
     "mrded/nvim-lsp-notify",
     "lewis6991/gitsigns.nvim",
+    "djoshea/vim-autoread",
     -- Languages
     { "Julian/lean.nvim",          dependencies = { "neovim/nvim-lspconfig", "nvim-lua/plenary.nvim" } },
     { "mrcjkb/haskell-tools.nvim", dependencies = { "nvim-lua/plenary.nvim" },                         version = "^2" },
@@ -54,12 +55,20 @@ require("lazy").setup({
     },
     {
         "yetone/avante.nvim",
-        build = function()
-            return "make"
-        end,
+        build = "make",
         event = "VeryLazy",
         version = false,
-        build = "make",
+        opts = {
+            instruction_file = "avante.md",
+            provider = "openai",
+            providers = {
+                openai = {
+                    endpoint = "https://api.openai.com/v1",
+                    model = "gpt-5.1",
+                    timeout = 60000,
+                },
+            },
+        },
         dependencies = {
             "stevearc/dressing.nvim",
             "nvim-lua/plenary.nvim",
@@ -77,7 +86,14 @@ require("lazy").setup({
                 ft = { "markdown", "Avante" },
             },
         },
-    }
+    },
+    {
+        "milanglacier/minuet-ai.nvim",
+        dependencies = {
+            "hrsh7th/nvim-cmp",
+            "nvim-lua/plenary.nvim",
+        },
+    },
 })
 
 -- Settings
@@ -101,7 +117,7 @@ vim.notify.setup {
 }
 require('gitsigns').setup()
 --require("lsp-notify").setup {}
-require("ai")
+--require("ai")
 
 -- Settings (After plugin load)
 require("keymap")
