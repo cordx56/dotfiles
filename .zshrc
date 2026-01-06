@@ -172,30 +172,37 @@ if which git 1>/dev/null 2>&1; then
 	source $HOME/.gitconfig.sh
 fi
 
-# 1Password
+# use 1Password ssh-agent or start new ssh-agent if macOS
 _op_ssh_auth_sock() {
 	if [ $(uname -s) = "Linux" ] \
 		&& [ -e "$HOME/.1password/agent.sock" ] \
 		&& [ -z "$SSH_AUTH_SOCK" ]; then
 		export SSH_AUTH_SOCK="$HOME/.1password/agent.sock"
 	fi
-	if [ $(uname -s) = "Darwin" ] \
-		&& [ -e "$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock" ] \
-		&& [[ "$SSH_AUTH_SOCK" =~ "Listeners$" ]]; then
-		export SSH_AUTH_SOCK="$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+	if [ $(uname -s) = "Darwin" ] && [[ "$SSH_AUTH_SOCK" =~ "Listeners$" ]]; then
+		if [ -e "$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock" ]; then
+			export SSH_AUTH_SOCK="$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+		else
+			# this starts OpenSSH version ssh-agent if OpenSSH is installed
+			ps x | grep "[s]sh-agent" | awk '{ print $1 }' | xargs kill
+			eval "$(ssh-agent)" > /dev/null 2>&1
+		fi
 	fi
 }
 
 shared_hook_file="$HOME/.zsh_hook"
 _shared_hook() {
+	# update hook file permission
+	if [ ! -f "$shared_hook_file" ]; then
+		touch "$shared_hook_file"
+	fi
+	chmod 600 "$shared_hook_file"
+
+	# update or load hook file
 	if [[ $SHLVL -eq 1 ]]; then
-		# update hook file permission
-		if [ ! -f "$shared_hook_file" ]; then
-			touch "$shared_hook_file"
-		fi
-		chmod 600 "$shared_hook_file"
 		# update $SSH_AUTH_SOCK
 		_op_ssh_auth_sock
+
 		if [ -n "$SSH_AUTH_SOCK" ]; then
 			cat << EOF > "$shared_hook_file"
 $(cat "$shared_hook_file" | grep -v "export SSH_AUTH_SOCK=")
@@ -203,6 +210,9 @@ export SSH_AUTH_SOCK="$SSH_AUTH_SOCK"
 EOF
 		fi
 	else
+		# reload hook
+		# this is intended to update already running shell
+		# e.g. zsh inside tmux
 		source "$shared_hook_file"
 	fi
 }
