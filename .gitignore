@@ -34,9 +34,6 @@
 !.config/byobu/profile.tmux
 !.config/byobu/status
 
-!.config/ghostty/
-!.config/ghostty/**
-
 !.ssh/
 !.ssh/config
 !.ssh/conf.d/
@@ -74,9 +71,22 @@
 !.config/Code\ -\ OSS/User/
 !.config/Code\ -\ OSS/User/settings.json
 
+# Terminals
+
+!.config/ghostty/
+!.config/ghostty/**
+
 !.config/iterm2/
 !.config/iterm2/com.googlecode.iterm2.plist
 !.config/iterm2/iterm2bg.scpt
 
 !.config/alacritty/
 !.config/alacritty/**
+
+# AI
+!.config/agents/
+!.config/agents/**
+!.claude/
+!.claude/CLAUDE.md
+!.codex/
+!.codex/AGENTS.md
