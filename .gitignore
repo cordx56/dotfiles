@@ -84,8 +84,8 @@
 !.config/alacritty/**
 
 # AI
-!.config/agents/
-!.config/agents/**
+!.agents/
+!.agents/**
 !.claude/
 !.claude/CLAUDE.md
 !.codex/

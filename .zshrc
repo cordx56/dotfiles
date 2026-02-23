@@ -287,6 +287,9 @@ _zellij_wrap() {
 }
 alias z=_zellij_wrap
 
+# opencode
+setpath "$HOME/.opencode/bin"
+
 # ==========================#
 # INSERT CHANGES ABOVE HERE #
 # ========================= #
