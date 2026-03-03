@@ -238,14 +238,27 @@ loaded "${HOME}/.iterm2_shell_integration.zsh" || \
 
 # my scripts
 .env() {
-	local current="$(pwd)"
-	local argfrom=1
-	local envfile="${current}/.env"
-	if [[ "$1" = "-f" ]]; then
-		argfrom=3
-		envfile="${current}/${2}"
-	fi
-	env $(cat "${envfile}") "${@:${argfrom}}"
+	local i=1
+	local envfiles=()
+	for ((i=1; i<=${#@}; i++))
+	do
+		if [[ "${@[$i]}" = "-f" ]]; then
+			envfiles+=("${@[$((i+=1))]}")
+		else
+			if [[ ${#envfiles} == 0 ]]; then
+				envfiles+=(".env")
+			fi
+			break
+		fi
+	done
+	(
+		set -a
+		for envfile in $envfiles; do
+			source "$envfile"
+		done
+		set +a
+		eval "${@:$i}"
+	)
 }
 # ssh
 ssh_dl_port="21221"
