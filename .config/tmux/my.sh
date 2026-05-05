@@ -36,7 +36,12 @@ function config_tmux() {
     ZSH_PATH="$(which zsh)"
     DEFAULT_SHELL=${ZSH_PATH:-$SHELL}
     $set -g default-command "${DEFAULT_SHELL}"
-    $set -g default-terminal "xterm-256color"
+
+    if infocmp -x xterm-ghostty > /dev/null; then
+        $set -g default-terminal "xterm-ghostty"
+    else
+        $set -g default-terminal "xterm-256color"
+    fi
     $set -ag terminal-overrides ",$TERM:Tc"
 
     # mouse

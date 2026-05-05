@@ -116,6 +116,9 @@ if [ -e "$HOME/.elan/env" ]; then
 	loaded "$HOME/.elan/env" && \
 		source "$HOME/.elan/env"
 fi
+if [ -e "$HOME/.elan/bin" ]; then
+	setpath "$HOME/.elan/bin"
+fi
 ## TeX
 export TEXMFCNF="$HOME/.texmf:"
 alias pandoc-beamer="pandoc -t beamer --slide-level=3"
