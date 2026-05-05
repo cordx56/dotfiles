@@ -15,6 +15,7 @@ SAVEHIST=50000
 setopt hist_expire_dups_first
 setopt extended_history
 setopt inc_append_history
+setopt hist_ignore_space
 #setopt share_history
 bindkey -e
 # End of lines configured by zsh-newuser-install

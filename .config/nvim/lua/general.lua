@@ -18,6 +18,7 @@ opt.shiftwidth = 4
 
 -- Encoding
 opt.encoding = "utf-8"
+opt.fileformats = { "unix", "dos" }
 
 -- Spell check
 opt.spell = true
