@@ -1,7 +1,7 @@
 git config --global init.defaultBranch main
 ## user
-git config --global user.email "cordx56@cordx.cx"
-git config --global user.name "CHISEN Kaoru"
+git config --global user.email "cord@x56.cx"
+git config --global user.name "Yuki Okamoto"
 git config --global user.signingkey "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDMWey4e7S7JyB3Id/R0GmWsm28hti/91+ve82MgOXVn"
 ## signing
 git config --global commit.gpgsign true
