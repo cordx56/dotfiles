@@ -10,6 +10,7 @@ background-blur = 4
 link-url = true
 
 macos-titlebar-style = tabs
+macos-option-as-alt = true
 clipboard-read = allow
 clipboard-write = allow
 clipboard-trim-trailing-spaces = true
