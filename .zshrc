@@ -266,6 +266,31 @@ loaded "${HOME}/.iterm2_shell_integration.zsh" || \
 		eval "${@:$i}"
 	)
 }
+memwatch() {
+	local max_vmpeak="0"
+	local max_vmhwm="0"
+	_memwatch() {
+		local mem="$(pstree -T -p "$1" | \
+			grep -oP '\(\K([0-9]+)(?=\))' | \
+			xargs -I'{}' cat '/proc/{}/status' 2> /dev/null)"
+		local vmpeak="$(echo "$mem" | \
+			grep -oP 'VmPeak:\s+\K([0-9]+)' | \
+			awk '{ sum += $1 } END { print sum }')"
+		local vmhwm="$(echo "$mem" | \
+			grep -oP 'VmHWM:\s+\K([0-9]+)' | \
+			awk '{ sum += $1 } END { print sum }')"
+		max_vmpeak="$(echo -e "$vmpeak\n$max_vmpeak" | sort -n | tail -1)"
+		max_vmhwm="$(echo -e "$vmhwm\n$max_vmhwm" | sort -n | tail -1)"
+	}
+	"$@" &
+	pid="$!"
+
+	while ps -p "$pid" > /dev/null; do _memwatch "$pid"; sleep 0.1; done
+	wait "$pid"
+
+	echo
+	echo "VmPeak: $max_vmpeak, VmHWM: $max_vmhwm"
+}
 # ssh
 ssh_dl_port="21221"
 dl() {
