@@ -6,6 +6,7 @@ git config --global user.signingkey "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDMWey4
 ## signing
 git config --global commit.gpgsign true
 git config --global gpg.format ssh
+git config --global gpg.ssh.allowedSignersFile "$HOME/.git-allowed-signers"
 ## alias
 git config --global alias.s status
 git config --global alias.b branch
@@ -14,6 +15,6 @@ git config --global alias.r "restore --staged"
 git config --global alias.d diff
 git config --global alias.a add
 git config --global alias.c commit
-git config --global alias.l "log --all --graph --decorate --pretty=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%ai%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an <%ae>%C(reset)'"
+git config --global alias.l "log --all --graph --decorate --pretty=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%ai%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''           %C(white)%s%C(reset)%n''           %C(dim white)%an <%ae> (Signed: %G?)%C(reset)'"
 ## others
 git config --global http.postBuffer 100M
