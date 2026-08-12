@@ -86,8 +86,20 @@
 
 # AI
 !.agents/
-!.agents/**
+!.agents/AGENTS.md
 !.claude/
 !.claude/CLAUDE.md
+!.claude/skills
 !.codex/
 !.codex/AGENTS.md
+!.codex/skills
+## skills
+!.agents/skills/
+!.agents/skills/programming-common/
+!.agents/skills/programming-common/**
+!.agents/skills/python/
+!.agents/skills/python/**
+!.agents/skills/rust/
+!.agents/skills/rust/**
+!.agents/skills/typescript/
+!.agents/skills/typescript/**
