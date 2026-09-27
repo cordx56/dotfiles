@@ -360,6 +360,11 @@ if [ -f "$HOME/.secrets/zshrc" ]; then
 		source "$HOME/.secrets/zshrc"
 fi
 
+# nvim check (this should be after pkg mans setup)
+if which nvim >/dev/null 2>&1; then
+	export VISUAL=nvim
+fi
+
 #
 # PowerLevel9K
 #
