@@ -78,8 +78,8 @@ export VISUAL="vim"
 setpath "$HOME/.local/bin"
 ## Rust
 setpath "$HOME/.cargo/bin"
-## prepoly
-setpath "$HOME/.prepoly/bin"
+## Brass
+setpath "$HOME/.brass/bin"
 ## Golang
 if which go 1>/dev/null 2>&1; then
 	export GOPATH="$HOME/.go"
@@ -347,6 +347,12 @@ fi
 if [ -f "$HOME/.local/bin/mise" ]; then
 	loaded "$HOME/.local/bin/mise" || \
 		eval "$($HOME/.local/bin/mise activate zsh)"
+fi
+
+# nix
+if [ -f "$HOME/.nix-profile/etc/profile.d/nix.sh" ]; then
+	loaded "$HOME/.nix-profile/etc/profile.d/nix.sh" || \
+		source "$HOME/.nix-profile/etc/profile.d/nix.sh"
 fi
 
 if [ -f "$HOME/.secrets/zshrc" ]; then
