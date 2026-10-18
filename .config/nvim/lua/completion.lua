@@ -19,10 +19,14 @@ cmp.setup({
 })
 
 require("minuet").setup {
-    provider = "openai",
+    provider = "openai_compatible",
     provider_options = {
-        openai = {
-            model = "gpt-5-mini",
+        openai_compatible = {
+            model = "deepseek/deepseek-v4.1-flash-1017:nitro",
+            stream = true,
+            end_point = "https://openrouter.ai/api/v1/chat/completions",
+            api_key = "OPENROUTER_API_KEY",
+            name = "OpenRouter",
         },
     },
 }
