@@ -19,14 +19,13 @@ cmp.setup({
 })
 
 require("minuet").setup {
-    provider = "openai_compatible",
+    provider = "claude",
     provider_options = {
-        openai_compatible = {
-            model = "deepseek/deepseek-v4.1-flash-1017:nitro",
+        claude = {
+            model = "claude-haiku-5-5",
             stream = true,
-            end_point = "https://openrouter.ai/api/v1/chat/completions",
-            api_key = "OPENROUTER_API_KEY",
-            name = "OpenRouter",
+            end_point = "https://api.anthropic.com/v1/messages",
+            api_key = "ANTHROPIC_API_KEY",
         },
     },
 }
