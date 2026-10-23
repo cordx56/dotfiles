@@ -63,6 +63,7 @@ function config_tmux() {
 
     # variable
     $set -ag update-environment " SSH_AUTH_SOCK "
+    $set -ag update-environment " NO_DEV_NULL_ADDICT "
 
     # Customize
     #$set -g status 1

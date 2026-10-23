@@ -24,9 +24,8 @@ export GPG_TTY=$(tty)
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 p10k_INSTANT_PROMPT_PATH="${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-not_readable "$p10k_INSTANT_PROMPT_PATH" || \
-	loaded "$p10k_INSTANT_PROMPT_PATH" || \
-	source "$p10k_INSTANT_PROMPT_PATH"
+#not_readable "$p10k_INSTANT_PROMPT_PATH" || \
+#	source "$p10k_INSTANT_PROMPT_PATH"
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
@@ -38,7 +37,7 @@ setopt inc_append_history
 setopt hist_ignore_space
 #setopt share_history
 # idempotent note: this overwrite key binds set later
-loaded "bindkey-e" || bindkey -e
+bindkey -e
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename '~/.zshrc'
@@ -54,8 +53,8 @@ ZVM_VI_INSERT_ESCAPE_BINDKEY=jj
 # zplug
 not_readable "$HOME/.zplug/init.zsh" && \
 	curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
-if ! loaded "$HOME/.zplug/init.zsh"; then
-	source "$HOME/.zplug/init.zsh"
+[ -f "$HOME/.zplug/init.zsh" ] && source "$HOME/.zplug/init.zsh"
+if which zplug > /dev/null; then
 	zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 	zplug "romkatv/powerlevel10k", as:theme, depth:1
 	zplug "zsh-users/zsh-syntax-highlighting", defer:2
@@ -113,13 +112,9 @@ if which php 1>/dev/null 2>&1; then
 fi
 # Haskell
 not_readable "$HOME/.ghcup/env" ] || \
-	loaded "$HOME/.ghcup/env" || \
 	source "$HOME/.ghcup/env" # ghcup-env
 ## Lean
-if ! ( \
-	not_readable "$HOME/.elan/env" || \
-	loaded "$HOME/.elan/env" \
-); then
+if ! (not_readable "$HOME/.elan/env"); then
 	source "$HOME/.elan/env"
 	setpath "$HOME/.elan/bin"
 fi
@@ -137,21 +132,18 @@ fi
 
 # homebrew
 not_readable "/opt/homebrew/bin/brew" || \
-	loaded "/opt/homebrew/bin/brew" || \
 	eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Completion
 ## Golang goenv
 if which goenv 1>/dev/null 2>&1; then
-	loaded "goenv" || \
-		eval "$(goenv init -)"
+	eval "$(goenv init -)"
 fi
 ## Haskell stack
 if which stack 1>/dev/null 2>&1; then
 	autoload -U +X compinit && compinit
 	autoload -U +X bashcompinit && bashcompinit
-	loaded "stack" || \
-		eval "$(stack --bash-completion-script stack)"
+	eval "$(stack --bash-completion-script stack)"
 fi
 
 # clipboard
@@ -331,17 +323,14 @@ setpath "$HOME/.opencode/bin"
 
 # mise
 not_readable "$HOME/.local/bin/mise" || \
-	loaded "$HOME/.local/bin/mise" || \
 	eval "$($HOME/.local/bin/mise activate zsh)"
 
 # nix
 not_readable "$HOME/.nix-profile/etc/profile.d/nix.sh" || \
-	loaded "$HOME/.nix-profile/etc/profile.d/nix.sh" || \
 	source "$HOME/.nix-profile/etc/profile.d/nix.sh"
 
 # secret envs
 not_readable "$HOME/.secrets/zshrc" || \
-	loaded "$HOME/.secrets/zshrc" || \
 	source "$HOME/.secrets/zshrc"
 
 # nvim check (this should be after pkg mans setup)
@@ -350,9 +339,10 @@ if which nvim >/dev/null 2>&1; then
 	export VISUAL=nvim
 fi
 
+eval "$(dev-null-addict init sh --toggle ctrl+g)"
+
 #
 # PowerLevel9K
 #
 not_readable "$HOME/.p10k.zsh" || \
-	loaded "$HOME/.p10k.zsh" || \
 	source "$HOME/.p10k.zsh"
