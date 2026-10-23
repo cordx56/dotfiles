@@ -172,19 +172,27 @@ fi
 
 # use 1Password ssh-agent or start new ssh-agent if macOS
 _op_ssh_auth_sock() {
-	if [ $(uname -s) = "Linux" ] \
-		&& [ -e "$HOME/.1password/agent.sock" ] \
-		&& [[ ! "$SSH_AUTH_SOCK" =~ /agent\.[0-9]+$ ]]; then
-		export SSH_AUTH_SOCK="$HOME/.1password/agent.sock"
+	local proton_agent="$HOME/.ssh/proton-pass-ssh-agent.sock"
+	local op_agent_linux="$HOME/.1password/agent.sock"
+	local op_agent_darwin="$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+	local pm_agent=""
+
+	# check password manager's agent
+	if [ -r "$proton_agent" ]; then
+		pm_agent="$proton_agent"
+	elif [ -r "$op_agent_linux" ]; then
+		pm_agent="$op_agent_linux"
+	elif [ -r "$op_agent_darwin" ]; then
+		pm_agent="$op_agent_darwin"
 	fi
-	if [ $(uname -s) = "Darwin" ] && [[ "$SSH_AUTH_SOCK" =~ "Listeners$" ]]; then
-		if [ -e "$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock" ]; then
-			export SSH_AUTH_SOCK="$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
-		else
-			# this starts OpenSSH version ssh-agent if OpenSSH is installed
-			ps x | grep "[s]sh-agent" | awk '{ print $1 }' | xargs kill
-			eval "$(ssh-agent)" > /dev/null 2>&1
-		fi
+
+	# do not set password manager's agent if the session is over SSH
+	if [ -z "$SSH_CLIENT" ] && [ -z "$SSH_TTY" ] && [ -r "$pm_agent" ]; then
+		export SSH_AUTH_SOCK="$pm_agent"
+	elif [ $(uname -s) = "Darwin" ] && \
+		ps x | grep "[s]sh-agent" | awk '{ print $1 }' | xargs kill > /dev/null 2>&1; \
+	then
+		eval "$(ssh-agent)" > /dev/null 2>&1
 	fi
 }
 
