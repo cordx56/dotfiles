@@ -1,0 +1,21 @@
+anchor=bottom-right
+width=400
+height=200
+margin=10
+padding=10
+background-color=#111112cc
+text-color=#cccccc
+border-size=2
+border-color=#cc3333ee
+border-radius=5
+max-history=5
+group-by=summary
+
+font="Commit Mono Nerd Font" 14
+format=<b>%s</b>\n%b
+
+default-timeout=10000
+ignore-timeout=1
+
+[urgency=high]
+ignore-timeout=0

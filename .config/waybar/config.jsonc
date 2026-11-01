@@ -1,0 +1,65 @@
+{
+    "position": "top",
+
+    "spacing": 0,
+    "margin-top": 10,
+    "margin-bottom": 0,
+
+    "modules-left": [
+    ],
+    "modules-center": [
+        "clock",
+
+        "hyprland/workspaces",
+
+        "tray",
+        "pulseaudio",
+        "network",
+        "battery",
+
+        "custom/notification",
+
+        "custom/power",
+    ],
+    "modules-right": [
+    ],
+
+    "clock": {
+        "format": "{:%Y-%m-%d %H:%M}",
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-icons": {
+            "default": ["\uf027", "\uf028"],
+        },
+        "on-click": "pavucontrol",
+    },
+
+    "network": {
+        "format-wifi": "\uf1eb {signalStrength}%",
+        "on-click": "nm-connection-editor",
+    },
+
+    "battery": {
+        "format": "{icon} {capacity}%",
+        "format-charging": "\ueb2d {capacity}%",
+        "format-icons": [
+            "\uf244",
+            "\uf243",
+            "\uf242",
+            "\uf241",
+            "\uf240",
+        ],
+    },
+
+    "custom/notification": {
+        "format": "\udb80\udf9f",
+        "on-click": "makoctl restore & makoctl restore & makoctl restore & makoctl restore & makoctl restore",
+    },
+
+    "custom/power": {
+        "format": "\uf011",
+        "on-click": "hyprctl dispatch 'hl.dsp.exit()'",
+    },
+}

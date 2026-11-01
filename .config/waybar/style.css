@@ -1,0 +1,77 @@
+* {
+    font-family: "CommitMono Nerd Font";
+}
+
+window#waybar {
+    font-size: 1.4em;
+    background-color: transparent;
+}
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+#workspaces {
+    margin: 0 40px;
+    background-color: #111112;
+    opacity: 0.7;
+    border-radius: 40px;
+}
+#workspaces button {
+    border-radius: 0;
+}
+#workspaces button:first-child {
+    border-radius: 40px 0 0 40px;
+}
+#workspaces button:last-child {
+    border-radius: 0 40px 40px 0;
+}
+#workspaces button.active {
+    background-color: #cc3333;
+}
+
+#clock {
+    background-color: #111112;
+    opacity: 0.8;
+    padding: 0 30px;
+    border-radius: 40px;
+}
+
+#tray {
+    background-color: #111112;
+    opacity: 0.8;
+    padding: 0 10px 0 20px;
+    border-radius: 40px 0 0 40px;
+}
+
+#pulseaudio {
+    background-color: #111112;
+    opacity: 0.8;
+    padding: 0 10px;
+}
+
+#network {
+    background-color: #111112;
+    opacity: 0.8;
+    padding: 0 10px;
+}
+
+#battery {
+    background-color: #111112;
+    opacity: 0.8;
+    padding: 0 20px 0 10px;
+    border-radius: 0 40px 40px 0;
+}
+
+#custom-notification {
+    background-color: #111112;
+    opacity: 0.8;
+    margin: 0 10px;
+    padding: 0 20px;
+    border-radius: 40px;
+}
+#custom-power {
+    background-color: #111112;
+    opacity: 0.8;
+    padding: 0 20px;
+    border-radius: 40px;
+}

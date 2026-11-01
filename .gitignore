@@ -84,6 +84,15 @@
 !.config/alacritty/
 !.config/alacritty/**
 
+# WM
+
+!.config/hypr/
+!.config/hypr/**
+!.config/waybar/
+!.config/waybar/**
+!.config/mako/
+!.config/mako/**
+
 # AI
 !.agents/
 !.agents/AGENTS.md
