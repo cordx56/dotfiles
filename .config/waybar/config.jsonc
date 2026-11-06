@@ -44,6 +44,7 @@
     "battery": {
         "format": "{icon} {capacity}%",
         "format-charging": "\ueb2d {capacity}%",
+        "format-full": "\ueb2d {capacity}%",
         "format-icons": [
             "\uf244",
             "\uf243",

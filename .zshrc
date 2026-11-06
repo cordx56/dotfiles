@@ -165,6 +165,7 @@ fi
 # use 1Password ssh-agent or start new ssh-agent if macOS
 _op_ssh_auth_sock() {
 	local proton_agent="$HOME/.ssh/proton-pass-ssh-agent.sock"
+	local proton_cli_agent="$HOME/.ssh/proton-pass-agent.sock"
 	local op_agent_linux="$HOME/.1password/agent.sock"
 	local op_agent_darwin="$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 	local pm_agent=""
@@ -172,6 +173,8 @@ _op_ssh_auth_sock() {
 	# check password manager's agent
 	if [ -r "$proton_agent" ]; then
 		pm_agent="$proton_agent"
+	elif [ -r "$proton_cli_agent" ]; then
+		pm_agent="$proton_cli_agent"
 	elif [ -r "$op_agent_linux" ]; then
 		pm_agent="$op_agent_linux"
 	elif [ -r "$op_agent_darwin" ]; then
